@@ -25,7 +25,7 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
         except:
             if self.USE_CMD:
                 print(COLOR.ERROR + "[ERROR]" + COLOR.CLEAR, f"OPEN COM PORT '{self.COM_PORT}' FAILED")
-                print("SET COM PORT:> ", end='', flush=True)
+                print(COLOR.PROMPT + "SET COM PORT:> " + COLOR.CLEAR, end='', flush=True)
                 for LINE in sys.stdin:
                     CMD = LINE.strip().upper()
                     if (CMD == ''): CMD = self.COM_PORT
@@ -35,7 +35,7 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
                     if RET == "COM OPEN OK":
                         self.SERIAL.open()
                         return RET
-                    print("SET COM PORT:> ", end='', flush=True)
+                    print(COLOR.PROMPT + "SET COM PORT:> " + COLOR.CLEAR, end='', flush=True)
             else:
                return "COM OPEN FAILED"
             
@@ -46,8 +46,8 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
         RET = self.QUERY_ANGLE(DIR)
         self.CLOSE_COM()
         if self.USE_CMD:
-            if DIR == "H": print("H_POSITION:", '{:0>2X}'.format(self.HPOS[0]), '{:0>2X}'.format(self.HPOS[1]) )
-            if DIR == "V": print("V_POSITION:", '{:0>2X}'.format(self.VPOS[0]), '{:0>2X}'.format(self.VPOS[1]) )
+            if DIR == "H": print("H_POSITION:", '{:0>2X :0>2X}'.format(self.HPOS[0], self.HPOS[1]) )
+            if DIR == "V": print("V_POSITION:", '{:0>2X :0>2X}'.format(self.VPOS[0], self.VPOS[1]) )
         return RET
     
     def LIST_DIR(self):
@@ -67,13 +67,16 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
             return "NO SUCH FILE OR DIRECTORY"
 
     def SHOW_HELP(self):
-        print(COLOR.HINT, "\n>>> PELCO-D INTERACTIVE COMMAND SHELL <<<\n")
-        print("\t  [ AVAILABLE COMMAND LIST ]")
-        print("----------------", "HELP: SHOW THIS MESSAGE")
-        print("|UPLT  UP  UPRT|", "GET  [H,V]: GET CURRENT POSITION")
-        print("|LT   STOP   RT|", "SET [H,V]: GOTO ANGLE\t(2 ARGUMENT)")
-        print("|DNLT  DN  DNRT|", "SPDV, SPDH: SET SPEED\t(1 ARGUMENT)")
-        print("----------------", "ADDR: SET ADDRESS\t(1 ARGUMENT)")
+        print(COLOR.HINT , "\n>>> PELCO-D INTERACTIVE COMMAND SHELL <<<\n")
+        print("\t  [ AVAILABLE COMMAND LIST ]"                      )
+        print("   [MOVEMENTS]  ", "HELP: SHOW THIS MESSAGE"         )
+        print("----------------", "COM [PORT]: SET COM PORT"        )
+        print("|UPLT  UP  UPRT|", "ADDR [INT]: SET ADDRESS"         )
+        print("|              |", "GET [H,V]: GET CURRENT POSITION" )
+        print("|LT   STOP   RT|", "SET [H,V] [INT]: GOTO POSITION"  )
+        print("|              |", "SPD [H,V] [INT]: SET SPEED"      )
+        print("|DNLT  DN  DNRT|", "RUN [FILENAME] : RUN PROGRAM"    )
+        print("----------------", "LS, CD: USAGE SAME AS SHELL"     )
         print("\n>>>  CTRL + C OR TYPE 'EXIT' TO QUIT  <<<\n", COLOR.CLEAR)
         return 0
 
@@ -85,10 +88,11 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
             match CMD[0]:
                 case "SET":
                     RET = self.GOTO(CMD[1], int(CMD[2], 10))
-                case "SPDV":
-                    self.VSPD = int(CMD[1], 10)
-                case "SPDH":
-                    self.HSPD = int(CMD[1], 10)
+                case "SPD":
+                    match CMD[1]:
+                        case "V": self.VSPD = int(CMD[2], 10)
+                        case "H": self.HSPD = int(CMD[2], 10)
+                        case _  : RET = "INVALID COMMAND"
                 case "GET":
                     RET = self.QUERY_ANGLE_WRAPPED(CMD[1])
                 case "ADDR":
