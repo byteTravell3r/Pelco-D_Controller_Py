@@ -1,14 +1,22 @@
 import serial
 
+global COLOR
+class COLOR():
+    HINT   = "\33[90m"
+    ERROR  = "\33[91m"
+    OK     = "\33[92m"
+    PROMPT = "\33[93m"
+    DEBUG  = "\33[94m"
+    CLEAR  = "\33[0m"
+
 class PELCOD_CONTROLLER():
-    
-    def __init__(self):
-        self.ADDR = 0x01
-        self.HSPD = 0xFF
-        self.VSPD = 0xFF
-        self.HPOS = [0x00, 0x00]
-        self.VPOS = [0x00, 0x00]
-        self.COM_PORT = "COM6"
+    ADDR = 0x01
+    HSPD = 0xFF
+    VSPD = 0xFF
+    HPOS = [0x00, 0x00]
+    VPOS = [0x00, 0x00]
+    COM_PORT = "COM5"
+    DEBUG = True
 
     def SET_SERIAL(self, COM):
         self.COM_PORT = COM
@@ -83,19 +91,31 @@ class PELCOD_CONTROLLER():
         return RET
 
     def SEND_CMD(self, ADDR, VERB, PAR1=0x00, PAR2=0x00, ONESHOT=True):
-        if ONESHOT: RET = self.OPEN_COM()
-        if (RET != 0): return RET
+        if ONESHOT:
+            RET = self.OPEN_COM()
+            if (RET != 0):
+                return RET
+
         FRAME = [0xFF, ADDR, 0x00, VERB, PAR1, PAR2, 0x00]
         FRAME[6] = sum(FRAME, -0xFF) % 0x100
-        for BYTE in FRAME: self.SERIAL.write(BYTE.to_bytes())
-        if ONESHOT: self.CLOSE_COM()
+
+        if self.DEBUG:
+            print(COLOR.DEBUG + f"{self.COM_PORT} TX [", end=' ')
+            for BYTE in FRAME:
+                print('{:0>2X}'.format(BYTE), end=' ')
+            print("]" + COLOR.CLEAR)
+
+        for BYTE in FRAME:
+            self.SERIAL.write(BYTE.to_bytes())
+        if ONESHOT:
+            self.CLOSE_COM()
         return 0
 
     def OPEN_COM(self):
         try:
             if not self.SERIAL.is_open:
                 self.SERIAL.open()
-            return 0
+                return 0
         except:
             return "COM OPEN FAILED"
 
