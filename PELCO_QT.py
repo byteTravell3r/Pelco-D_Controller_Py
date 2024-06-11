@@ -505,7 +505,7 @@ class Ui_MainWindow(object):
 "{\n"
 "    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(71, 75, 87, 255),stop:1 rgba(35, 37, 43, 255));\n"
 "    color: #ffffff;\n"
-"    border: 2px groove #333333;\n"
+"    border: 1px groove #333333;\n"
 "    subcontrol-origin: margin;\n"
 "    subcontrol-position: top left;\n"
 "    padding: 2px;\n"
@@ -1219,6 +1219,11 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.SLIDER_H_POS.sizePolicy().hasHeightForWidth())
         self.SLIDER_H_POS.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.SLIDER_H_POS.setFont(font)
         self.SLIDER_H_POS.setMaximum(35000)
         self.SLIDER_H_POS.setPageStep(1)
         self.SLIDER_H_POS.setTracking(True)
@@ -1229,6 +1234,11 @@ class Ui_MainWindow(object):
         self.BAR_H_POS.addWidget(self.SLIDER_H_POS)
         self.NUM_SET_H_POS = QtWidgets.QLCDNumber(parent=self.centralwidget)
         self.NUM_SET_H_POS.setMinimumSize(QtCore.QSize(120, 65))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.NUM_SET_H_POS.setFont(font)
         self.NUM_SET_H_POS.setAutoFillBackground(False)
         self.NUM_SET_H_POS.setStyleSheet("QLCDNumber\n"
 "{\n"
@@ -1246,9 +1256,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_2.setSpacing(6)
+        self.verticalLayout_2.setSpacing(8)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.groupBox_3 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.groupBox_3.setFont(font)
         self.groupBox_3.setFlat(False)
         self.groupBox_3.setObjectName("groupBox_3")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.groupBox_3)
@@ -1260,7 +1275,12 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.LBL_COM.sizePolicy().hasHeightForWidth())
         self.LBL_COM.setSizePolicy(sizePolicy)
-        self.LBL_COM.setMinimumSize(QtCore.QSize(40, 0))
+        self.LBL_COM.setMinimumSize(QtCore.QSize(55, 0))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.LBL_COM.setFont(font)
         self.LBL_COM.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.LBL_COM.setObjectName("LBL_COM")
         self.horizontalLayout_2.addWidget(self.LBL_COM)
@@ -1271,15 +1291,30 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.comboBox.sizePolicy().hasHeightForWidth())
         self.comboBox.setSizePolicy(sizePolicy)
         self.comboBox.setMinimumSize(QtCore.QSize(0, 36))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.comboBox.setFont(font)
         self.comboBox.setEditable(True)
         self.comboBox.setObjectName("comboBox")
         self.horizontalLayout_2.addWidget(self.comboBox)
         self.BTN_SET_COM = QtWidgets.QPushButton(parent=self.groupBox_3)
-        self.BTN_SET_COM.setMinimumSize(QtCore.QSize(100, 36))
+        self.BTN_SET_COM.setMinimumSize(QtCore.QSize(105, 36))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.BTN_SET_COM.setFont(font)
         self.BTN_SET_COM.setObjectName("BTN_SET_COM")
         self.horizontalLayout_2.addWidget(self.BTN_SET_COM)
         self.verticalLayout_2.addWidget(self.groupBox_3)
         self.groupBox_7 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.groupBox_7.setFont(font)
         self.groupBox_7.setObjectName("groupBox_7")
         self.horizontalLayout_8 = QtWidgets.QHBoxLayout(self.groupBox_7)
         self.horizontalLayout_8.setContentsMargins(4, 4, 4, 4)
@@ -1290,12 +1325,22 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.LBL_PELCO.sizePolicy().hasHeightForWidth())
         self.LBL_PELCO.setSizePolicy(sizePolicy)
-        self.LBL_PELCO.setMinimumSize(QtCore.QSize(40, 0))
+        self.LBL_PELCO.setMinimumSize(QtCore.QSize(55, 0))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.LBL_PELCO.setFont(font)
         self.LBL_PELCO.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.LBL_PELCO.setObjectName("LBL_PELCO")
         self.horizontalLayout_8.addWidget(self.LBL_PELCO)
         self.lineEdit = QtWidgets.QLineEdit(parent=self.groupBox_7)
         self.lineEdit.setMinimumSize(QtCore.QSize(0, 36))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.lineEdit.setFont(font)
         self.lineEdit.setStyleSheet("QLineEdit\n"
 "{\n"
 "    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(118, 118, 118, 255),stop:1 rgba(70, 70, 70, 255));\n"
@@ -1334,11 +1379,25 @@ class Ui_MainWindow(object):
         self.lineEdit.setObjectName("lineEdit")
         self.horizontalLayout_8.addWidget(self.lineEdit)
         self.BTN_SET_COM_2 = QtWidgets.QPushButton(parent=self.groupBox_7)
-        self.BTN_SET_COM_2.setMinimumSize(QtCore.QSize(100, 36))
+        self.BTN_SET_COM_2.setMinimumSize(QtCore.QSize(105, 36))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.BTN_SET_COM_2.setFont(font)
         self.BTN_SET_COM_2.setObjectName("BTN_SET_COM_2")
         self.horizontalLayout_8.addWidget(self.BTN_SET_COM_2)
         self.verticalLayout_2.addWidget(self.groupBox_7)
         self.groupBox_2 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.groupBox_2.setFont(font)
+        self.groupBox_2.setStyleSheet("QGroupBox \n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(102, 115, 140, 255),stop:1 rgba(56, 63, 77, 255));\n"
+"}")
         self.groupBox_2.setObjectName("groupBox_2")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.groupBox_2)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -1351,7 +1410,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FRAME_0.sizePolicy().hasHeightForWidth())
         self.FRAME_0.setSizePolicy(sizePolicy)
         self.FRAME_0.setMinimumSize(QtCore.QSize(0, 60))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.FRAME_0.setFont(font)
         self.FRAME_0.setAutoFillBackground(False)
+        self.FRAME_0.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.FRAME_0.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.FRAME_0.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.FRAME_0.setLineWidth(1)
@@ -1369,7 +1438,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FRAME_1.sizePolicy().hasHeightForWidth())
         self.FRAME_1.setSizePolicy(sizePolicy)
         self.FRAME_1.setMinimumSize(QtCore.QSize(0, 60))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.FRAME_1.setFont(font)
         self.FRAME_1.setAutoFillBackground(False)
+        self.FRAME_1.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.FRAME_1.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.FRAME_1.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.FRAME_1.setLineWidth(1)
@@ -1387,7 +1466,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FRAME_2.sizePolicy().hasHeightForWidth())
         self.FRAME_2.setSizePolicy(sizePolicy)
         self.FRAME_2.setMinimumSize(QtCore.QSize(0, 60))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.FRAME_2.setFont(font)
         self.FRAME_2.setAutoFillBackground(False)
+        self.FRAME_2.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.FRAME_2.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.FRAME_2.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.FRAME_2.setLineWidth(1)
@@ -1405,7 +1494,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FRAME_3.sizePolicy().hasHeightForWidth())
         self.FRAME_3.setSizePolicy(sizePolicy)
         self.FRAME_3.setMinimumSize(QtCore.QSize(0, 60))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.FRAME_3.setFont(font)
         self.FRAME_3.setAutoFillBackground(False)
+        self.FRAME_3.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.FRAME_3.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.FRAME_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.FRAME_3.setLineWidth(1)
@@ -1423,7 +1522,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FRAME_4.sizePolicy().hasHeightForWidth())
         self.FRAME_4.setSizePolicy(sizePolicy)
         self.FRAME_4.setMinimumSize(QtCore.QSize(0, 60))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.FRAME_4.setFont(font)
         self.FRAME_4.setAutoFillBackground(False)
+        self.FRAME_4.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.FRAME_4.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.FRAME_4.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.FRAME_4.setLineWidth(1)
@@ -1442,7 +1551,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FRAME_5.sizePolicy().hasHeightForWidth())
         self.FRAME_5.setSizePolicy(sizePolicy)
         self.FRAME_5.setMinimumSize(QtCore.QSize(0, 60))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.FRAME_5.setFont(font)
         self.FRAME_5.setAutoFillBackground(False)
+        self.FRAME_5.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.FRAME_5.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.FRAME_5.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.FRAME_5.setLineWidth(1)
@@ -1460,7 +1579,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.FRAME_6.sizePolicy().hasHeightForWidth())
         self.FRAME_6.setSizePolicy(sizePolicy)
         self.FRAME_6.setMinimumSize(QtCore.QSize(0, 60))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.FRAME_6.setFont(font)
         self.FRAME_6.setAutoFillBackground(False)
+        self.FRAME_6.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.FRAME_6.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.FRAME_6.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.FRAME_6.setLineWidth(1)
@@ -1473,7 +1602,16 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.FRAME_6)
         self.verticalLayout_2.addWidget(self.groupBox_2)
         self.groupBox_4 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.groupBox_4.setFont(font)
         self.groupBox_4.setAutoFillBackground(False)
+        self.groupBox_4.setStyleSheet("QGroupBox \n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(102, 115, 140, 255),stop:1 rgba(56, 63, 77, 255));\n"
+"}")
         self.groupBox_4.setObjectName("groupBox_4")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.groupBox_4)
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -1486,7 +1624,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.RFRAME_0.sizePolicy().hasHeightForWidth())
         self.RFRAME_0.setSizePolicy(sizePolicy)
         self.RFRAME_0.setMinimumSize(QtCore.QSize(0, 60))
-        self.RFRAME_0.setAutoFillBackground(True)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.RFRAME_0.setFont(font)
+        self.RFRAME_0.setAutoFillBackground(False)
+        self.RFRAME_0.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.RFRAME_0.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.RFRAME_0.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.RFRAME_0.setLineWidth(1)
@@ -1504,7 +1652,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.RFRAME_1.sizePolicy().hasHeightForWidth())
         self.RFRAME_1.setSizePolicy(sizePolicy)
         self.RFRAME_1.setMinimumSize(QtCore.QSize(0, 60))
-        self.RFRAME_1.setAutoFillBackground(True)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.RFRAME_1.setFont(font)
+        self.RFRAME_1.setAutoFillBackground(False)
+        self.RFRAME_1.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.RFRAME_1.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.RFRAME_1.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.RFRAME_1.setLineWidth(1)
@@ -1522,7 +1680,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.RFRAME_2.sizePolicy().hasHeightForWidth())
         self.RFRAME_2.setSizePolicy(sizePolicy)
         self.RFRAME_2.setMinimumSize(QtCore.QSize(0, 60))
-        self.RFRAME_2.setAutoFillBackground(True)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.RFRAME_2.setFont(font)
+        self.RFRAME_2.setAutoFillBackground(False)
+        self.RFRAME_2.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.RFRAME_2.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.RFRAME_2.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.RFRAME_2.setLineWidth(1)
@@ -1540,7 +1708,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.RFRAME_3.sizePolicy().hasHeightForWidth())
         self.RFRAME_3.setSizePolicy(sizePolicy)
         self.RFRAME_3.setMinimumSize(QtCore.QSize(0, 60))
-        self.RFRAME_3.setAutoFillBackground(True)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.RFRAME_3.setFont(font)
+        self.RFRAME_3.setAutoFillBackground(False)
+        self.RFRAME_3.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.RFRAME_3.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.RFRAME_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.RFRAME_3.setLineWidth(1)
@@ -1558,7 +1736,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.RFRAME_4.sizePolicy().hasHeightForWidth())
         self.RFRAME_4.setSizePolicy(sizePolicy)
         self.RFRAME_4.setMinimumSize(QtCore.QSize(0, 60))
-        self.RFRAME_4.setAutoFillBackground(True)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.RFRAME_4.setFont(font)
+        self.RFRAME_4.setAutoFillBackground(False)
+        self.RFRAME_4.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.RFRAME_4.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.RFRAME_4.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.RFRAME_4.setLineWidth(1)
@@ -1577,7 +1765,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.RFRAME_5.sizePolicy().hasHeightForWidth())
         self.RFRAME_5.setSizePolicy(sizePolicy)
         self.RFRAME_5.setMinimumSize(QtCore.QSize(0, 60))
-        self.RFRAME_5.setAutoFillBackground(True)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.RFRAME_5.setFont(font)
+        self.RFRAME_5.setAutoFillBackground(False)
+        self.RFRAME_5.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.RFRAME_5.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.RFRAME_5.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.RFRAME_5.setLineWidth(1)
@@ -1595,7 +1793,17 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.RFRAME_6.sizePolicy().hasHeightForWidth())
         self.RFRAME_6.setSizePolicy(sizePolicy)
         self.RFRAME_6.setMinimumSize(QtCore.QSize(0, 60))
-        self.RFRAME_6.setAutoFillBackground(True)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.RFRAME_6.setFont(font)
+        self.RFRAME_6.setAutoFillBackground(False)
+        self.RFRAME_6.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: #00000000\n"
+"}\n"
+"")
         self.RFRAME_6.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.RFRAME_6.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.RFRAME_6.setLineWidth(1)
@@ -1610,6 +1818,11 @@ class Ui_MainWindow(object):
         spacerItem = QtWidgets.QSpacerItem(20, 30, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Preferred)
         self.verticalLayout_2.addItem(spacerItem)
         self.groupBox_6 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.groupBox_6.setFont(font)
         self.groupBox_6.setObjectName("groupBox_6")
         self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.groupBox_6)
         self.horizontalLayout_7.setContentsMargins(4, 4, 4, 4)
@@ -1621,6 +1834,11 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.BTN_SET_H_SPD.sizePolicy().hasHeightForWidth())
         self.BTN_SET_H_SPD.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.BTN_SET_H_SPD.setFont(font)
         self.BTN_SET_H_SPD.setObjectName("BTN_SET_H_SPD")
         self.horizontalLayout_7.addWidget(self.BTN_SET_H_SPD)
         self.BTN_SET_V_SPD = QtWidgets.QPushButton(parent=self.groupBox_6)
@@ -1629,10 +1847,20 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.BTN_SET_V_SPD.sizePolicy().hasHeightForWidth())
         self.BTN_SET_V_SPD.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.BTN_SET_V_SPD.setFont(font)
         self.BTN_SET_V_SPD.setObjectName("BTN_SET_V_SPD")
         self.horizontalLayout_7.addWidget(self.BTN_SET_V_SPD)
         self.verticalLayout_2.addWidget(self.groupBox_6)
         self.groupBox_5 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.groupBox_5.setFont(font)
         self.groupBox_5.setObjectName("groupBox_5")
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.groupBox_5)
         self.horizontalLayout_5.setContentsMargins(4, 4, 4, 4)
@@ -1644,6 +1872,11 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.BTN_SET_H_POS.sizePolicy().hasHeightForWidth())
         self.BTN_SET_H_POS.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.BTN_SET_H_POS.setFont(font)
         self.BTN_SET_H_POS.setObjectName("BTN_SET_H_POS")
         self.horizontalLayout_5.addWidget(self.BTN_SET_H_POS)
         self.BTN_SET_V_POS = QtWidgets.QPushButton(parent=self.groupBox_5)
@@ -1652,6 +1885,11 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.BTN_SET_V_POS.sizePolicy().hasHeightForWidth())
         self.BTN_SET_V_POS.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(True)
+        self.BTN_SET_V_POS.setFont(font)
         self.BTN_SET_V_POS.setObjectName("BTN_SET_V_POS")
         self.horizontalLayout_5.addWidget(self.BTN_SET_V_POS)
         self.verticalLayout_2.addWidget(self.groupBox_5)
@@ -1666,6 +1904,11 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.SLIDER_V_POS.sizePolicy().hasHeightForWidth())
         self.SLIDER_V_POS.setSizePolicy(sizePolicy)
         self.SLIDER_V_POS.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
+        font.setBold(False)
+        self.SLIDER_V_POS.setFont(font)
         self.SLIDER_V_POS.setMaximum(5900)
         self.SLIDER_V_POS.setPageStep(1)
         self.SLIDER_V_POS.setOrientation(QtCore.Qt.Orientation.Vertical)
@@ -1683,8 +1926,8 @@ class Ui_MainWindow(object):
         self.NUM_SET_V.setSizePolicy(sizePolicy)
         self.NUM_SET_V.setMinimumSize(QtCore.QSize(120, 50))
         font = QtGui.QFont()
-        font.setFamily("Verdana")
-        font.setPointSize(20)
+        font.setFamily("Tahoma")
+        font.setPointSize(12)
         font.setBold(False)
         self.NUM_SET_V.setFont(font)
         self.NUM_SET_V.setAutoFillBackground(False)
@@ -1707,7 +1950,14 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
         self.groupBox.setSizePolicy(sizePolicy)
         self.groupBox.setSizeIncrement(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(11)
+        font.setBold(True)
+        self.groupBox.setFont(font)
         self.groupBox.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.groupBox.setAutoFillBackground(False)
+        self.groupBox.setStyleSheet("")
         self.groupBox.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.groupBox.setFlat(False)
         self.groupBox.setCheckable(False)
@@ -1773,6 +2023,7 @@ class Ui_MainWindow(object):
         self.BTN_STOP.setMinimumSize(QtCore.QSize(0, 100))
         self.BTN_STOP.setSizeIncrement(QtCore.QSize(100, 100))
         font = QtGui.QFont()
+        font.setFamily("Microsoft YaHei UI")
         font.setPointSize(24)
         font.setBold(True)
         self.BTN_STOP.setFont(font)

@@ -513,7 +513,7 @@ QGroupBox::title
 {
     background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(71, 75, 87, 255),stop:1 rgba(35, 37, 43, 255));
     color: #ffffff;
-    border: 2px groove #333333;
+    border: 1px groove #333333;
     subcontrol-origin: margin;
     subcontrol-position: top left;
     padding: 2px;
@@ -1230,6 +1230,13 @@ QStatusBar
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <family>Tahoma</family>
+          <pointsize>12</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="maximum">
          <number>35000</number>
         </property>
@@ -1257,6 +1264,13 @@ QStatusBar
           <width>120</width>
           <height>65</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tahoma</family>
+          <pointsize>12</pointsize>
+          <bold>false</bold>
+         </font>
         </property>
         <property name="autoFillBackground">
          <bool>false</bool>
@@ -1292,10 +1306,17 @@ QStatusBar
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <property name="spacing">
-         <number>6</number>
+         <number>8</number>
         </property>
         <item>
          <widget class="QGroupBox" name="groupBox_3">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="title">
            <string>Serial Port Setting</string>
           </property>
@@ -1325,9 +1346,16 @@ QStatusBar
              </property>
              <property name="minimumSize">
               <size>
-               <width>40</width>
+               <width>55</width>
                <height>0</height>
               </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
              <property name="text">
               <string>COM</string>
@@ -1351,6 +1379,13 @@ QStatusBar
                <height>36</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="editable">
               <bool>true</bool>
              </property>
@@ -1360,9 +1395,16 @@ QStatusBar
             <widget class="QPushButton" name="BTN_SET_COM">
              <property name="minimumSize">
               <size>
-               <width>100</width>
+               <width>105</width>
                <height>36</height>
               </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
              <property name="text">
               <string>Close COM</string>
@@ -1374,6 +1416,13 @@ QStatusBar
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox_7">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="title">
            <string>Run Program</string>
           </property>
@@ -1400,9 +1449,16 @@ QStatusBar
              </property>
              <property name="minimumSize">
               <size>
-               <width>40</width>
+               <width>55</width>
                <height>0</height>
               </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
              <property name="text">
               <string>PELCO</string>
@@ -1419,6 +1475,13 @@ QStatusBar
                <width>0</width>
                <height>36</height>
               </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
              <property name="styleSheet">
               <string notr="true">QLineEdit
@@ -1463,9 +1526,16 @@ QLineEdit:on
             <widget class="QPushButton" name="BTN_SET_COM_2">
              <property name="minimumSize">
               <size>
-               <width>100</width>
+               <width>105</width>
                <height>36</height>
               </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
              <property name="text">
               <string>Start Prog</string>
@@ -1477,6 +1547,19 @@ QLineEdit:on
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox_2">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QGroupBox 
+{
+	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(102, 115, 140, 255),stop:1 rgba(56, 63, 77, 255));
+}</string>
+          </property>
           <property name="title">
            <string>Transmit Data Frame</string>
           </property>
@@ -1510,8 +1593,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
               <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -1553,8 +1650,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
               <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -1596,8 +1707,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
               <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -1639,8 +1764,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
               <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -1682,8 +1821,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
               <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -1728,8 +1881,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
               <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -1771,8 +1938,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
               <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -1805,8 +1986,21 @@ QLineEdit:on
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox_4">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="autoFillBackground">
            <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QGroupBox 
+{
+	background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(102, 115, 140, 255),stop:1 rgba(56, 63, 77, 255));
+}</string>
           </property>
           <property name="title">
            <string>Recieved Data Frame</string>
@@ -1841,8 +2035,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
-              <bool>true</bool>
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -1884,8 +2092,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
-              <bool>true</bool>
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -1927,8 +2149,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
-              <bool>true</bool>
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -1970,8 +2206,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
-              <bool>true</bool>
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -2013,8 +2263,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
-              <bool>true</bool>
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -2059,8 +2323,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
-              <bool>true</bool>
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -2102,8 +2380,22 @@ QLineEdit:on
                <height>60</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
              <property name="autoFillBackground">
-              <bool>true</bool>
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
@@ -2136,6 +2428,13 @@ QLineEdit:on
         </item>
         <item>
          <spacer name="verticalSpacer">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>12</pointsize>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
@@ -2152,6 +2451,13 @@ QLineEdit:on
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox_6">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="title">
            <string>Velocity Set</string>
           </property>
@@ -2179,6 +2485,13 @@ QLineEdit:on
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>Set H Velocity</string>
              </property>
@@ -2192,6 +2505,13 @@ QLineEdit:on
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>Set V Velocity</string>
              </property>
@@ -2202,6 +2522,13 @@ QLineEdit:on
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox_5">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="title">
            <string>Position Set</string>
           </property>
@@ -2229,6 +2556,13 @@ QLineEdit:on
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>Set H Position</string>
              </property>
@@ -2241,6 +2575,13 @@ QLineEdit:on
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
              <property name="text">
               <string>Set V Position</string>
@@ -2270,6 +2611,13 @@ QLineEdit:on
             <width>16777215</width>
             <height>16777215</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>12</pointsize>
+            <bold>false</bold>
+           </font>
           </property>
           <property name="maximum">
            <number>5900</number>
@@ -2310,8 +2658,8 @@ QLineEdit:on
           </property>
           <property name="font">
            <font>
-            <family>Verdana</family>
-            <pointsize>20</pointsize>
+            <family>Tahoma</family>
+            <pointsize>12</pointsize>
             <bold>false</bold>
            </font>
           </property>
@@ -2355,8 +2703,21 @@ QLineEdit:on
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>Tahoma</family>
+          <pointsize>11</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="layoutDirection">
          <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
         </property>
         <property name="title">
          <string>Pan-Tilt Direction</string>
@@ -2504,6 +2865,7 @@ QLineEdit:on
            </property>
            <property name="font">
             <font>
+             <family>Microsoft YaHei UI</family>
              <pointsize>24</pointsize>
              <bold>true</bold>
             </font>

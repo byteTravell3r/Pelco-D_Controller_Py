@@ -190,14 +190,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             widget.setGraphicsEffect(SHADOW)
 
         for OBJECT in self.findChildren(QtWidgets.QLCDNumber):
-            addShadowEffect(OBJECT, 2, 192)
+            addShadowEffect(OBJECT, 3, 128)
         
         for OBJECT in self.findChildren(QtWidgets.QSlider) + self.findChildren(QtWidgets.QGroupBox):
-            print(OBJECT)
-            addShadowEffect(OBJECT, 2, 128)
-        
-        addShadowEffect(self.LBL_COM, 1, 192)
-        addShadowEffect(self.LBL_PELCO, 1, 192)
+            addShadowEffect(OBJECT, 2, 96)
+
+        addShadowEffect(self.LBL_COM, 1, 128)
+        addShadowEffect(self.LBL_PELCO, 1, 128)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
