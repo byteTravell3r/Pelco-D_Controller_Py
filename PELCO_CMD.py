@@ -1,57 +1,74 @@
 import os, sys, time, signal
+import serial.tools.list_ports
 from PELCO_CON import PELCOD_CONTROLLER
 
 global COLOR
+
 class COLOR():
-    HINT   = "\33[90m"
-    ERROR  = "\33[91m"
-    OK     = "\33[92m"
+    HINT = "\33[90m"
+    ERROR = "\33[91m"
+    OK = "\33[92m"
     PROMPT = "\33[93m"
-    DEBUG  = "\33[94m"
-    CLEAR  = "\33[0m"
+    DEBUG = "\33[94m"
+    CLEAR = "\33[0m"
 
 class PELCOD_CMD(PELCOD_CONTROLLER):
-    
+
     USE_CMD = True
     RUN_FILE_DEPTH = 0
     RUN_FILE_MAX_DEPTH = 3
     SIG_INT = False
 
-    ### REDEFINED 'OPEN_COM' FOR INTERACTIVITY ###
-    def OPEN_COM(self):
+    def OPEN_COM_INTERACTIVE(self):
         try:
             if not self.SERIAL.is_open:
                 self.SERIAL.open()
                 return 0
         except:
             if self.USE_CMD:
-                print(COLOR.ERROR + "[ERROR]" + COLOR.CLEAR, f"OPEN COM PORT '{self.COM_PORT}' FAILED")
-                print(COLOR.PROMPT + "SET COM PORT:> " + COLOR.CLEAR, end='', flush=True)
+                print(COLOR.ERROR + "[ERROR]" + COLOR.CLEAR,
+                      f"OPEN COM PORT '{self.COM_PORT}' FAILED")
+
+                print(COLOR.DEBUG + "\t[ AVAILABLE COM PORTS ]")
+                for port in serial.tools.list_ports.comports():
+                    # print("  " + "[" + str(serial.tools.list_ports.comports().index(port)) + "]", end=' ')
+                    print(port)
+                print(COLOR.CLEAR, end='')
+
+                print(COLOR.PROMPT + "SET COM PORT:> " +
+                      COLOR.CLEAR, end='', flush=True)
                 for LINE in sys.stdin:
                     CMD = LINE.strip()
-                    if (os.name == 'nt'): CMD = CMD.upper()
-                    if (CMD == ''): CMD = self.COM_PORT
-                    if (CMD == 'EXIT'): exit()
+                    if (os.name == 'nt'):
+                        CMD = CMD.upper()
+                    if (CMD == ''):
+                        CMD = self.COM_PORT
+                    if (CMD == 'EXIT'):
+                        exit()
                     RET = self.SET_SERIAL(CMD)
                     print(RET, flush=True)
                     if RET == "COM OPEN OK":
-                        self.SERIAL.open()
+                        self.SERIAL.close()
                         return RET
-                    print(COLOR.PROMPT + "SET COM PORT:> " + COLOR.CLEAR, end='', flush=True)
+                    print(COLOR.PROMPT + "SET COM PORT:> " +
+                          COLOR.CLEAR, end='', flush=True)
             else:
-               return "COM OPEN FAILED"
-            
+                return "COM OPEN FAILED"
+
     ### REDEFINED 'QUERY_ANGLE_WRAPPED' FOR INTERACTIVITY ###
     def QUERY_ANGLE_WRAPPED(self, DIR):
-        RET = self.OPEN_COM()
-        if (RET != 0): return RET
+        RET = self.OPEN_COM_INTERACTIVE()
+        if (RET != 0):
+            return RET
         RET = self.QUERY_ANGLE(DIR)
         self.CLOSE_COM()
         if (self.USE_CMD and RET == 0):
-            if DIR == "H": print( "H_POSITION:", '{:0>2X}'.format(self.HPOS[1]), '{:0>2X}'.format(self.HPOS[0]) )
-            if DIR == "V": print( "V_POSITION:", '{:0>2X}'.format(self.VPOS[1]), '{:0>2X}'.format(self.VPOS[0]) )
+            if DIR == "H":
+                print("H_POSITION:", self.HPOS)
+            if DIR == "V":
+                print("V_POSITION:", self.VPOS)
         return RET
-    
+
     def LIST_DIR(self):
         print(COLOR.HINT)
         print("[CURRENT DIRECTORY]\n", os.getcwd())
@@ -65,20 +82,20 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
         try:
             os.chdir(CMD)
             return 0
-        except(FileNotFoundError, FileExistsError):
+        except (FileNotFoundError, FileExistsError):
             return "NO SUCH FILE OR DIRECTORY"
 
     def SHOW_HELP(self):
-        print(COLOR.HINT , "\n>>> PELCO-D INTERACTIVE COMMAND SHELL <<<\n")
-        print("\t     [ AVAILABLE COMMAND LIST ]\n"                   )
-        print("   [MOVEMENT]   ", "\tHELP: SHOW THIS MESSAGE"         )
-        print("----------------", "\tCOM [PORT]: SET COM PORT"        )
-        print("|UPLT  UP  UPRT|", "\tADDR [INT]: SET ADDRESS"         )
-        print("|              |", "\tGET [H,V]: GET CURRENT POSITION" )
-        print("|LT   STOP   RT|", "\tSET [H,V] [INT]: GOTO POSITION"  )
-        print("|              |", "\tSPD [H,V] [INT]: SET SPEED"      )
-        print("|DNLT  DN  DNRT|", "\tRUN [FILENAME] : RUN PROGRAM"    )
-        print("----------------", "\tLS, CD: USAGE SAME AS SHELL"     )
+        print(COLOR.HINT, "\n>>> PELCO-D INTERACTIVE COMMAND SHELL <<<\n")
+        print("\t     [ AVAILABLE COMMAND LIST ]\n")
+        print("   [MOVEMENT]   ", "\tHELP: SHOW THIS MESSAGE")
+        print("----------------", "\tCOM [PORT]: SET COM PORT")
+        print("|UPLT  UP  UPRT|", "\tADDR [INT]: SET ADDRESS")
+        print("|              |", "\tGET [H,V]: GET CURRENT POSITION")
+        print("|LT   STOP   RT|", "\tSET [H,V] [INT]: GOTO POSITION")
+        print("|              |", "\tSPD [H,V] [INT]: SET SPEED")
+        print("|DNLT  DN  DNRT|", "\tRUN [FILENAME] : RUN PROGRAM")
+        print("----------------", "\tLS, CD: USAGE SAME AS SHELL")
         print("\n>>>  CTRL + C OR TYPE 'EXIT' TO QUIT  <<<\n", COLOR.CLEAR)
         return 0
 
@@ -94,7 +111,7 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
                     match CMD[1]:
                         case "V": self.VSPD = int(CMD[2], 10)
                         case "H": self.HSPD = int(CMD[2], 10)
-                        case _  : RET = "INVALID COMMAND"
+                        case _: RET = "INVALID COMMAND"
                 case "GET":
                     RET = self.QUERY_ANGLE_WRAPPED(CMD[1].upper())
                 case "ADDR":
@@ -103,9 +120,10 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
                     if (os.name == 'nt'):
                         CMD[1] = CMD[1].upper()
                     RET = self.SET_SERIAL(CMD[1].upper())
-                    if(RET == "COM OPEN OK"): RET = 0
+                    if (RET == "COM OPEN OK"):
+                        RET = 0
                 case "WAIT":
-                    time.sleep(int(CMD[1]))
+                    time.sleep(float(CMD[1]))
                 case "HELP":
                     RET = self.SHOW_HELP()
                 case "RUN":
@@ -128,7 +146,7 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
                     pass
                 case _:
                     RET = self.MOVE(CMD[0])
-        except(IndexError, ValueError):
+        except (IndexError, ValueError):
             RET = "INVALID COMMAND"
         return RET
 
@@ -142,30 +160,32 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
 
         if not (FILE[0].strip() == "# PELCO CONTROL PROGRAM #"):
             return "INVALID PROGRAM FILE"
-        
+
         print(f">>> EXECUTING PROGRAM: {FILEPATH} <<<")
-        
+
         self.RUN_FILE_DEPTH += 1
 
         INDEX = 0
-        while(INDEX < len(FILE)):
+        while (INDEX < len(FILE)):
             if self.SIG_INT:
                 self.SIG_INT = False
                 return 0
-            
+
             LINE = FILE[INDEX]
             if self.DEBUG:
-                print(COLOR.DEBUG + f"LINE:{INDEX} ADDR:{self.ADDR}@{self.COM_PORT}> " + LINE + COLOR.CLEAR, end='', flush=True)
-            if (LINE == '\n'): LINE = '#'
+                print(COLOR.DEBUG + f"LINE:{INDEX} ADDR:{self.ADDR}@{self.COM_PORT}> " +
+                      LINE + COLOR.CLEAR, end='', flush=True)
+            if (LINE == '\n'):
+                LINE = '#'
             if (LINE.strip().split()[0] == "GOTO"):
                 try:
-                    INDEX = int(LINE.strip().split()[1]) - 1
+                    INDEX = int(LINE.strip().split()[1]) - 2
                     LINE = FILE[INDEX]
                 except:
                     RET = "GOTO LINE ERROR"
             else:
                 RET = self.INTERPRETER(LINE)
-            
+
             if (RET == 0):
                 INDEX += 1
             else:
@@ -174,6 +194,7 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
 
     def CMD_SHELL(self):
         self.USE_CMD = True
+
         def SIG_HANDLER(SIG, FRAME):
             print(COLOR.HINT + "EXIT\n" + COLOR.CLEAR)
             if self.RUN_FILE_DEPTH == 0:
@@ -182,21 +203,25 @@ class PELCOD_CMD(PELCOD_CONTROLLER):
 
         signal.signal(signal.SIGINT, SIG_HANDLER)
 
-        if ( self.SET_SERIAL(self.COM_PORT) != "COM OPEN OK" ):
-            self.OPEN_COM()
+        if (self.SET_SERIAL(self.COM_PORT) != "COM OPEN OK"):
+            self.OPEN_COM_INTERACTIVE()
         self.CLOSE_COM()
         self.SHOW_HELP()
 
-        print(f"{COLOR.PROMPT}PELCO-D ADDR:{self.ADDR}@{self.COM_PORT}> {COLOR.CLEAR}", end='', flush=True)
+        print(f"{COLOR.PROMPT}PELCO-D ADDR:{self.ADDR}@{self.COM_PORT}> {COLOR.CLEAR}",
+              end='', flush=True)
         for LINE in sys.stdin:
             RET = self.INTERPRETER(LINE)
-            if (RET != 0) and (RET != "COM OPEN OK") : print(COLOR.ERROR + "[ERROR]" + COLOR.CLEAR, RET,
-                                 COLOR.HINT + "[TYPE 'HELP' FOR MORE MESSAGE]" + COLOR.CLEAR)
-            print(f"{COLOR.PROMPT}PELCO-D ADDR:{self.ADDR}@{self.COM_PORT}> {COLOR.CLEAR}", end='', flush=True)
+            if (RET != 0) and (RET != "COM OPEN OK"):
+                print(COLOR.ERROR + "[ERROR]" + COLOR.CLEAR, RET,
+                      COLOR.HINT + "[TYPE 'HELP' FOR MORE MESSAGE]" + COLOR.CLEAR)
+            print(
+                f"{COLOR.PROMPT}PELCO-D ADDR:{self.ADDR}@{self.COM_PORT}> {COLOR.CLEAR}", end='', flush=True)
 
         self.USE_CMD = False
 
-if __name__ == '__main__' :
+
+if __name__ == '__main__':
     ### EXAMPLE OF USAGE ###
     PELCO = PELCOD_CMD()
     PELCO.CMD_SHELL()
