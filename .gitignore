@@ -1,4 +1,5 @@
 
+__pycache__/PELCO_CMD.cpython-310.pyc
 *.pyc
 /.vscode
 TEST.PELCO
