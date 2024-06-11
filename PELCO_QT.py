@@ -12,255 +12,1894 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1042, 697)
+        MainWindow.resize(1120, 620)
+        MainWindow.setMinimumSize(QtCore.QSize(1120, 620))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(14)
+        font.setBold(False)
+        MainWindow.setFont(font)
+        MainWindow.setStyleSheet("/*-----QWidget-----*/\n"
+"QWidget\n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(102, 115, 140, 255),stop:1 rgba(56, 63, 77, 255));\n"
+"    color: #ffffff;\n"
+"    border-color: #051a39;\n"
+"\n"
+"}\n"
+"\n"
+"/*-----QLabel-----*/\n"
+"QLabel\n"
+"{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    font-weight: bold;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QLabel::disabled\n"
+"{\n"
+"    background-color: transparent;\n"
+"    color: #898988;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QMenuBar-----*/\n"
+"QMenuBar\n"
+"{\n"
+"    background-color: #484c58;\n"
+"    color: #ffffff;\n"
+"    border-color: #051a39;\n"
+"    font-weight: bold;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QMenuBar::disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #898988;\n"
+"    border-color: #051a39;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QMenuBar::item\n"
+"{\n"
+"    background-color: transparent;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QMenuBar::item:selected\n"
+"{\n"
+"    background-color: #c4c5c3;\n"
+"    color: #000000;\n"
+"    border: 1px solid #000000;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QMenuBar::item:pressed\n"
+"{\n"
+"    background-color: #979796;\n"
+"    border: 1px solid #000;\n"
+"    margin-bottom: -1px;\n"
+"    padding-bottom: 1px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QMenu-----*/\n"
+"QMenu\n"
+"{\n"
+"    background-color: #c4c5c3;\n"
+"    border: 1px solid;\n"
+"    color: #000000;\n"
+"    font-weight: bold;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QMenu::separator\n"
+"{\n"
+"    height: 1px;\n"
+"    background-color: #363942;\n"
+"    color: #ffffff;\n"
+"    padding-left: 4px;\n"
+"    margin-left: 10px;\n"
+"    margin-right: 5px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QMenu::item\n"
+"{\n"
+"    min-width : 150px;\n"
+"    padding: 3px 20px 3px 20px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QMenu::item:selected\n"
+"{\n"
+"    background-color: #363942;\n"
+"    color: #ffffff;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QMenu::item:disabled\n"
+"{\n"
+"    color: #898988;\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QToolTip-----*/\n"
+"QToolTip\n"
+"{\n"
+"    background-color: #bbbcba;\n"
+"    color: #000000;\n"
+"    border-color: #051a39;\n"
+"    border : 1px solid #000000;\n"
+"    border-radius: 2px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QPushButton-----*/\n"
+"QPushButton\n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:0.5, y1:0, x2:0.5, y2:1, stop:0.05 #d28152,stop:1 #943100);\n"
+"    color: #ffffff;\n"
+"    font-weight: bold;\n"
+"    border-style: solid;\n"
+"    border-width: 3px;\n"
+"    border-radius: 5px;\n"
+"    border-color: #051a39;\n"
+"    padding: 5px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton::disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"    border-color: #051a39;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"    background-color: #F99963;\n"
+"    color: #ffffff;\n"
+"    border-style: solid;\n"
+"    border-width: 3px;\n"
+"    border-radius: 5px;\n"
+"    border-color: #051a39;\n"
+"    padding: 5px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton::pressed\n"
+"{\n"
+"    background-color: #880000;\n"
+"    color: #ffffff;\n"
+"    border-style: solid;\n"
+"    border-width: 4px;\n"
+"    border-radius: 5px;\n"
+"    border-color: #000000;\n"
+"    padding: 5px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton::checked\n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:0.5, y1:0, x2:0.5, y2:1, stop:0.05 #943100,stop:1 #d28152);\n"
+"    color: #ffffff;\n"
+"    border-style: solid;\n"
+"    border-width: 4px;\n"
+"    border-radius: 3px;\n"
+"    border-color: #000000;\n"
+"    padding: 5px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QToolButton-----*/\n"
+"QToolButton \n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(177, 181, 193, 255),stop:1 rgba(159, 163, 174, 255));\n"
+"    color: #ffffff;\n"
+"    font-weight: bold;\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-radius: 3px;\n"
+"    border-color: #051a39;\n"
+"    padding: 5px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QToolButton::disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"    border-color: #051a39;\n"
+"}\n"
+"\n"
+"\n"
+"QToolButton::hover\n"
+"{\n"
+"    background-color: #9fa3ae;\n"
+"    color: #ffffff;\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-radius: 3px;\n"
+"    border-color: #051a39;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"\n"
+"QToolButton::pressed\n"
+"{\n"
+"    background-color: #7b7e86;\n"
+"    color: #ffffff;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    border-radius: 3px;\n"
+"    border-color: #000000;\n"
+"    padding: 5px;\n"
+"\n"
+"}\n"
+"\n"
+"QComboBox\n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(118, 118, 118, 255),stop:1 rgba(70, 70, 70, 255));\n"
+"    border: 1px solid #333333;\n"
+"    border-radius: 3px;\n"
+"    padding-left: 6px;\n"
+"    color: lightgray;\n"
+"    font-weight: bold;\n"
+"    height: 20px;\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox::disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"    border-color: #051a39;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox:hover\n"
+"{\n"
+"    background-color: #646464;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox:on\n"
+"{\n"
+"    background-color: #979796;\n"
+"    color: #000000;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox QAbstractItemView\n"
+"{\n"
+"    background-color: #c4c5c3;\n"
+"    color: #000000;\n"
+"    border: 1px solid black;\n"
+"    selection-background-color: #363942;\n"
+"    selection-color: #ffffff;\n"
+"    outline: 0;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox::drop-down\n"
+"{\n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: top right;\n"
+"    width: 15px;\n"
+"    border-left-width: 1px;\n"
+"    border-left-color: darkgray;\n"
+"    border-left-style: solid; \n"
+"    border-top-right-radius: 3px; \n"
+"    border-bottom-right-radius: 3px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QComboBox::down-arrow\n"
+"{\n"
+"    image: url(://arrow-down.png);\n"
+"    width: 8px;\n"
+"    height: 8px;\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QSpinBox & QDoubleSpinBox & QDateTimeEdit-----*/\n"
+"QSpinBox, \n"
+"QDoubleSpinBox,\n"
+"QDateTimeEdit\n"
+"{\n"
+"    background-color: #000000;\n"
+"    color: #00ff00;\n"
+"    font-weight: bold;\n"
+"    border: 1px solid #333333;\n"
+"    padding : 4px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox::disabled, \n"
+"QDoubleSpinBox::disabled,\n"
+"QDateTimeEdit::disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"    border-color: #051a39;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox:hover, \n"
+"QDoubleSpinBox::hover,\n"
+"QDateTimeEdit::hover\n"
+"{\n"
+"    border: 1px solid #00ff00;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox::up-button, QSpinBox::down-button,\n"
+"QDoubleSpinBox::up-button, QDoubleSpinBox::down-button,\n"
+"QDateTimeEdit::up-button, QDateTimeEdit::down-button\n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(118, 118, 118, 255),stop:1 rgba(70, 70, 70, 255));\n"
+"    border: 0px solid #333333;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox::disabled, \n"
+"QDoubleSpinBox::disabled,\n"
+"QDateTimeEdit::disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"    border-color: #051a39;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox::up-button:hover, QSpinBox::down-button:hover,\n"
+"QDoubleSpinBox::up-button:hover, QDoubleSpinBox::down-button:hover,\n"
+"QDateTimeEdit::up-button:hover, QDateTimeEdit::down-button:hover\n"
+"{\n"
+"    background-color: #646464;\n"
+"    border: 1px solid #333333;\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox::up-button:disabled, QSpinBox::down-button:disabled,\n"
+"QDoubleSpinBox::up-button:disabled, QDoubleSpinBox::down-button:disabled,\n"
+"QDateTimeEdit::up-button:disabled, QDateTimeEdit::down-button:disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"    border-color: #051a39;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox::up-button:pressed, QSpinBox::down-button:pressed,\n"
+"QDoubleSpinBox::up-button:pressed, QDoubleSpinBox::down-button::pressed,\n"
+"QDateTimeEdit::up-button:pressed, QDateTimeEdit::down-button::pressed\n"
+"{\n"
+"    background-color: #979796;\n"
+"    border: 1px solid #444444;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox::down-arrow,\n"
+"QDoubleSpinBox::down-arrow,\n"
+"QDateTimeEdit::down-arrow\n"
+"{\n"
+"    image: url(://arrow-down.png);\n"
+"    width: 7px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QSpinBox::up-arrow,\n"
+"QDoubleSpinBox::up-arrow,\n"
+"QDateTimeEdit::up-arrow\n"
+"{\n"
+"    image: url(://arrow-up.png);\n"
+"    width: 7px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QLineEdit-----*/\n"
+"QLineEdit\n"
+"{\n"
+"    background-color: #000000;\n"
+"    color: #00ff00;\n"
+"    font-weight: bold;\n"
+"    border: 1px solid #333333;\n"
+"    padding: 4px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QLineEdit:hover\n"
+"{\n"
+"    border: 1px solid #00ff00;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QLineEdit::disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"    border-width: 1px;\n"
+"    border-color: #051a39;\n"
+"    padding: 2px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QTextEdit-----*/\n"
+"QTextEdit\n"
+"{\n"
+"    background-color: #808080;\n"
+"    color: #fff;\n"
+"    border: 1px groove #333333;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTextEdit::disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"    border-color: #051a39;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QGroupBox-----*/\n"
+"QGroupBox \n"
+"{\n"
+"    border: 1px groove #333333;\n"
+"    border-radius: 2px;\n"
+"    margin-top: 20px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QGroupBox \n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:0.5, y1:0, x2:0.50, y2:1, stop:0.00480769 rgba(170, 169, 169, 255),stop:1 rgba(122, 122, 122, 255));\n"
+"    font-weight: bold;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QGroupBox::title  \n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(71, 75, 87, 255),stop:1 rgba(35, 37, 43, 255));\n"
+"    color: #ffffff;\n"
+"    border: 2px groove #333333;\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top left;\n"
+"    padding: 2px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QGroupBox::title::disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top left;\n"
+"    padding: 5px;\n"
+"    border-top-left-radius: 3px;\n"
+"    border-top-right-radius: 3px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QCheckBox-----*/\n"
+"QCheckBox{\n"
+"    background-color: transparent;\n"
+"    font-weight: bold;\n"
+"    color: #fff;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox::indicator\n"
+"{\n"
+"    color: #b1b1b1;\n"
+"    background-color: #323232;\n"
+"    border: 2px solid #222222;\n"
+"    width: 12px;\n"
+"    height: 12px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox::indicator:checked\n"
+"{\n"
+"    image:url(://checkbox.png);\n"
+"    border: 2px solid #00ff00;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox::indicator:unchecked:hover\n"
+"{\n"
+"    border: 2px solid #00ff00;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox::disabled\n"
+"{\n"
+"    color: #656565;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QCheckBox::indicator:disabled\n"
+"{\n"
+"    background-color: #656565;\n"
+"    color: #656565;\n"
+"    border: 1px solid #656565;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QRadioButton-----*/\n"
+"QRadioButton{\n"
+"    background-color: transparent;\n"
+"    font-weight: bold;\n"
+"    color: #fff;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QRadioButton::indicator::unchecked\n"
+"{ \n"
+"    border: 2px inset #222222; \n"
+"    border-radius: 6px; \n"
+"    background-color:  #323232;\n"
+"    width: 9px; \n"
+"    height: 9px; \n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QRadioButton::indicator::unchecked:hover\n"
+"{ \n"
+"    border: 2px solid #00ff00; \n"
+"    border-radius: 5px; \n"
+"    background-color:  #323232;\n"
+"    width: 9px; \n"
+"    height: 9px; \n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QRadioButton::indicator::checked\n"
+"{ \n"
+"    border: 2px inset #222222; \n"
+"    border-radius: 5px; \n"
+"    background-color: #00ff00; \n"
+"    width: 9px; \n"
+"    height: 9px; \n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QRadioButton::disabled\n"
+"{\n"
+"    color: #656565;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QRadioButton::indicator:disabled\n"
+"{\n"
+"    background-color: #656565;\n"
+"    color: #656565;\n"
+"    border: 2px solid #656565;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QTableView & QTableWidget-----*/\n"
+"QTableView\n"
+"{\n"
+"    background-color: #808080;\n"
+"    border: 1px groove #333333;\n"
+"    color: #f0f0f0;\n"
+"    font-weight: bold;\n"
+"    gridline-color: #333333;\n"
+"    outline : 0;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTableView::disabled\n"
+"{\n"
+"    background-color: #242526;\n"
+"    border: 1px solid #32414B;\n"
+"    color: #656565;\n"
+"    gridline-color: #656565;\n"
+"    outline : 0;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTableView::item:hover \n"
+"{\n"
+"    background-color: #484c58;\n"
+"    color: #f0f0f0;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTableView::item:selected \n"
+"{\n"
+"    background-color: #484c58;\n"
+"    border: 2px groove #00ff00;\n"
+"    color: #F0F0F0;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTableView::item:selected:disabled\n"
+"{\n"
+"    background-color: #1a1b1c;\n"
+"    border: 2px solid #525251;\n"
+"    color: #656565;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTableCornerButton::section\n"
+"{\n"
+"    background-color: #282830;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section\n"
+"{\n"
+"    background-color: #282830;\n"
+"    color: #fff;\n"
+"    font-weight: bold;\n"
+"    text-align: left;\n"
+"    padding: 4px;\n"
+"    \n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section:disabled\n"
+"{\n"
+"    background-color: #525251;\n"
+"    color: #656565;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section:checked\n"
+"{\n"
+"    background-color: #00ff00;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section:checked:disabled\n"
+"{\n"
+"    color: #656565;\n"
+"    background-color: #525251;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section::vertical::first,\n"
+"QHeaderView::section::vertical::only-one\n"
+"{\n"
+"    border-top: 0px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section::vertical\n"
+"{\n"
+"    border-top: 0px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section::horizontal::first,\n"
+"QHeaderView::section::horizontal::only-one\n"
+"{\n"
+"    border-left: 0px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section::horizontal\n"
+"{\n"
+"    border-left: 0px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QTabWidget-----*/\n"
+"QTabBar::tab\n"
+"{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    font-weight: bold;\n"
+"    width: 80px;\n"
+"    height: 9px;\n"
+"    \n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:disabled\n"
+"{\n"
+"    background-color: #656565;\n"
+"    color: #656565;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabWidget::pane \n"
+"{\n"
+"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"    border: 1px groove #333333;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:selected\n"
+"{\n"
+"    background-color: #484c58;\n"
+"    color: #ffffff;\n"
+"    border: 1px groove #333333;\n"
+"    border-bottom: 0px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:selected:disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:!selected \n"
+"{\n"
+"    background-color: #a3a7b2;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:!selected:hover \n"
+"{\n"
+"    background-color: #484c58;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:top:!selected \n"
+"{\n"
+"    margin-top: 1px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:bottom:!selected \n"
+"{\n"
+"    margin-bottom: 3px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:top, QTabBar::tab:bottom \n"
+"{\n"
+"    min-width: 8ex;\n"
+"    margin-right: -1px;\n"
+"    padding: 5px 10px 5px 10px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:top:selected \n"
+"{\n"
+"    border-bottom-color: none;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:bottom:selected \n"
+"{\n"
+"    border-top-color: none;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:top:last, QTabBar::tab:bottom:last,\n"
+"QTabBar::tab:top:only-one, QTabBar::tab:bottom:only-one \n"
+"{\n"
+"    margin-right: 0;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:left:!selected \n"
+"{\n"
+"    margin-right: 2px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:right:!selected\n"
+"{\n"
+"    margin-left: 2px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:left, QTabBar::tab:right \n"
+"{\n"
+"    min-height: 15ex;\n"
+"    margin-bottom: -1px;\n"
+"    padding: 10px 5px 10px 5px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:left:selected \n"
+"{\n"
+"    border-left-color: none;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:right:selected \n"
+"{\n"
+"    border-right-color: none;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:left:last, QTabBar::tab:right:last,\n"
+"QTabBar::tab:left:only-one, QTabBar::tab:right:only-one \n"
+"{\n"
+"    margin-bottom: 0;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QSlider-----*/\n"
+"QSlider{\n"
+"    background-color: transparent;\n"
+"}\n"
+"\n"
+"\n"
+"QSlider::groove:horizontal \n"
+"{\n"
+"    background-color: transparent;\n"
+"    height: 24px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QSlider::sub-page:horizontal \n"
+"{\n"
+"    background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.00480769 rgba(201, 201, 201, 255),stop:1 rgba(72, 72, 72, 255));\n"
+"    border: 1px solid #000;\n"
+"}\n"
+"\n"
+"\n"
+"QSlider::add-page:horizontal \n"
+"{\n"
+"    background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.00480769 rgba(201, 201, 201, 255),stop:1 rgba(72, 72, 72, 255));\n"
+"    border: 1px solid #000; \n"
+"}\n"
+"\n"
+"\n"
+"QSlider::handle:horizontal \n"
+"{\n"
+"    background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:1, y2:1, stop:0.00480769 rgba(201, 201, 201, 255),stop:1 rgba(72, 72, 72, 255));\n"
+"    border: 1px solid #000; \n"
+"    width: 16px;\n"
+"    margin-top: -16px;\n"
+"    margin-bottom: -16px;\n"
+"    border-radius: 3px;\n"
+"}\n"
+"\n"
+"\n"
+"QSlider::handle:horizontal:hover \n"
+"{\n"
+"    background-color: #808080;\n"
+"}\n"
+"\n"
+"QSlider::handle:horizontal:disabled \n"
+"{\n"
+"    background-color: #eee;\n"
+"}\n"
+"\n"
+"\n"
+"QSlider::groove:vertical \n"
+"{\n"
+"    background-color: transparent;\n"
+"    width: 24px;\n"
+"}\n"
+"\n"
+"\n"
+"QSlider::sub-page:vertical \n"
+"{\n"
+"    background-color: qlineargradient(spread:reflect, x1:0, y1:0.483, x2:1, y2:0.517, stop:0.00480769 rgba(201, 201, 201, 255),stop:1 rgba(72, 72, 72, 255));\n"
+"    border: 1px solid #000;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QSlider::add-page:vertical \n"
+"{\n"
+"    background-color: qlineargradient(spread:reflect, x1:0, y1:0.483, x2:1, y2:0.517, stop:0.00480769 rgba(201, 201, 201, 255),stop:1 rgba(72, 72, 72, 255));\n"
+"    border: 1px solid #000;\n"
+"}\n"
+"\n"
+"\n"
+"QSlider::handle:vertical \n"
+"{\n"
+"    background-color: qlineargradient(spread:reflect, x1:0, y1:0.483, x2:1, y2:0.517, stop:0.00480769 rgba(201, 201, 201, 255),stop:1 rgba(72, 72, 72, 255));\n"
+"    border: 1px solid #000;\n"
+"    height: 16px;\n"
+"    margin-left: -16px;\n"
+"    margin-right: -16px;\n"
+"    border-radius: 3px;\n"
+"}\n"
+"\n"
+"\n"
+"QSlider::handle:vertical:hover \n"
+"{\n"
+"    background-color: #808080;\n"
+"\n"
+"}\n"
+"\n"
+"QSlider::handle:vertical:disabled \n"
+"{\n"
+"    background-color: #eee;\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QDial-----*/\n"
+"QDial\n"
+"{\n"
+"    background-color: #600000;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QDial::disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QScrollBar-----*/\n"
+"QScrollBar:horizontal\n"
+"{\n"
+"    border: 1px solid #222222;\n"
+"    background-color: #63676d;\n"
+"    height: 18px;\n"
+"    margin: 0px 18px 0 18px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::handle:horizontal\n"
+"{\n"
+"    background-color: #a6acb3;\n"
+"    border: 1px solid #656565;\n"
+"    border-radius: 2px;\n"
+"    min-height: 20px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::add-line:horizontal\n"
+"{\n"
+"    border: 1px solid #1b1b19;\n"
+"    background-color: #a6acb3;\n"
+"    width: 18px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::sub-line:horizontal\n"
+"{\n"
+"    border: 1px solid #1b1b19;\n"
+"    background-color: #a6acb3;\n"
+"    width: 18px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::right-arrow:horizontal\n"
+"{\n"
+"    image: url(://arrow-right.png);\n"
+"    width: 8px;\n"
+"    height: 8px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::left-arrow:horizontal\n"
+"{\n"
+"    image: url(://arrow-left.png);\n"
+"    width: 8px;\n"
+"    height: 8px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal\n"
+"{\n"
+"    background: none;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar:vertical\n"
+"{\n"
+"    background-color: #63676d;\n"
+"    width: 18px;\n"
+"    margin: 18px 0 18px 0;\n"
+"    border: 1px solid #222222;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::handle:vertical\n"
+"{\n"
+"    background-color: #a6acb3;\n"
+"    border: 1px solid #656565;\n"
+"    border-radius: 2px;\n"
+"    min-height: 20px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::add-line:vertical\n"
+"{\n"
+"    border: 1px solid #1b1b19;\n"
+"    background-color: #a6acb3;\n"
+"    height: 18px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::sub-line:vertical\n"
+"{\n"
+"    border: 1px solid #1b1b19;\n"
+"    background-color: #a6acb3;\n"
+"    height: 18px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::up-arrow:vertical\n"
+"{\n"
+"    image: url(://arrow-up.png);\n"
+"    width: 8px;\n"
+"    height: 8px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::down-arrow:vertical\n"
+"{\n"
+"    image: url(://arrow-down.png);\n"
+"    width: 8px;\n"
+"    height: 8px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical\n"
+"{\n"
+"    background: none;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QProgressBar-----*/\n"
+"QProgressBar\n"
+"{\n"
+"    background-color: #000;\n"
+"    color: #00ff00;\n"
+"    font-weight: bold;\n"
+"    border: 0px groove #000;\n"
+"    border-radius: 10px;\n"
+"    text-align: center;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar:disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"    border-color: #051a39;\n"
+"    border: 1px solid #000;\n"
+"    border-radius: 10px;\n"
+"    text-align: center;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk {\n"
+"    background-color: #ffaf02;\n"
+"    border: 0px;\n"
+"    border-radius: 10px;\n"
+"    color: #000;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QProgressBar::chunk:disabled {\n"
+"    background-color: #333;\n"
+"    border: 0px;\n"
+"    border-radius: 10px;\n"
+"    color: #656565;\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QStatusBar-----*/\n"
+"QStatusBar\n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(102, 115, 140, 255),stop:1 rgba(56, 63, 77, 255));\n"
+"    color: #ffffff;\n"
+"    border-color: #051a39;\n"
+"    font-weight: bold;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.comboBox = QtWidgets.QComboBox(parent=self.centralwidget)
-        self.comboBox.setGeometry(QtCore.QRect(660, 230, 181, 22))
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.BAR_H_POS = QtWidgets.QHBoxLayout()
+        self.BAR_H_POS.setSpacing(0)
+        self.BAR_H_POS.setObjectName("BAR_H_POS")
+        self.SLIDER_H_POS = QtWidgets.QSlider(parent=self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.SLIDER_H_POS.sizePolicy().hasHeightForWidth())
+        self.SLIDER_H_POS.setSizePolicy(sizePolicy)
+        self.SLIDER_H_POS.setMaximum(35000)
+        self.SLIDER_H_POS.setPageStep(1)
+        self.SLIDER_H_POS.setTracking(True)
+        self.SLIDER_H_POS.setOrientation(QtCore.Qt.Orientation.Horizontal)
+        self.SLIDER_H_POS.setTickPosition(QtWidgets.QSlider.TickPosition.TicksBothSides)
+        self.SLIDER_H_POS.setTickInterval(1000)
+        self.SLIDER_H_POS.setObjectName("SLIDER_H_POS")
+        self.BAR_H_POS.addWidget(self.SLIDER_H_POS)
+        self.NUM_SET_H_POS = QtWidgets.QLCDNumber(parent=self.centralwidget)
+        self.NUM_SET_H_POS.setMinimumSize(QtCore.QSize(120, 65))
+        self.NUM_SET_H_POS.setAutoFillBackground(False)
+        self.NUM_SET_H_POS.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: 0\n"
+"}\n"
+"")
+        self.NUM_SET_H_POS.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.NUM_SET_H_POS.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.NUM_SET_H_POS.setLineWidth(2)
+        self.NUM_SET_H_POS.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.NUM_SET_H_POS.setObjectName("NUM_SET_H_POS")
+        self.BAR_H_POS.addWidget(self.NUM_SET_H_POS)
+        self.verticalLayout_3.addLayout(self.BAR_H_POS)
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setSpacing(6)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.groupBox_3 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        self.groupBox_3.setFlat(False)
+        self.groupBox_3.setObjectName("groupBox_3")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.groupBox_3)
+        self.horizontalLayout_2.setContentsMargins(4, 4, 4, 4)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.LBL_COM = QtWidgets.QLabel(parent=self.groupBox_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.LBL_COM.sizePolicy().hasHeightForWidth())
+        self.LBL_COM.setSizePolicy(sizePolicy)
+        self.LBL_COM.setMinimumSize(QtCore.QSize(40, 0))
+        self.LBL_COM.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.LBL_COM.setObjectName("LBL_COM")
+        self.horizontalLayout_2.addWidget(self.LBL_COM)
+        self.comboBox = QtWidgets.QComboBox(parent=self.groupBox_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.MinimumExpanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.comboBox.sizePolicy().hasHeightForWidth())
+        self.comboBox.setSizePolicy(sizePolicy)
+        self.comboBox.setMinimumSize(QtCore.QSize(0, 36))
         self.comboBox.setEditable(True)
         self.comboBox.setObjectName("comboBox")
-        self.BTN_SET_COM = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.BTN_SET_COM.setGeometry(QtCore.QRect(850, 230, 75, 24))
+        self.horizontalLayout_2.addWidget(self.comboBox)
+        self.BTN_SET_COM = QtWidgets.QPushButton(parent=self.groupBox_3)
+        self.BTN_SET_COM.setMinimumSize(QtCore.QSize(100, 36))
         self.BTN_SET_COM.setObjectName("BTN_SET_COM")
-        self.label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(620, 230, 31, 16))
-        self.label.setObjectName("label")
-        self.DPAD_GRID = QtWidgets.QWidget(parent=self.centralwidget)
-        self.DPAD_GRID.setGeometry(QtCore.QRect(50, 340, 401, 291))
-        self.DPAD_GRID.setObjectName("DPAD_GRID")
-        self.DPAD = QtWidgets.QGridLayout(self.DPAD_GRID)
-        self.DPAD.setContentsMargins(6, 6, 6, 6)
-        self.DPAD.setSpacing(12)
-        self.DPAD.setObjectName("DPAD")
-        self.BTN_RT = QtWidgets.QPushButton(parent=self.DPAD_GRID)
+        self.horizontalLayout_2.addWidget(self.BTN_SET_COM)
+        self.verticalLayout_2.addWidget(self.groupBox_3)
+        self.groupBox_7 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        self.groupBox_7.setObjectName("groupBox_7")
+        self.horizontalLayout_8 = QtWidgets.QHBoxLayout(self.groupBox_7)
+        self.horizontalLayout_8.setContentsMargins(4, 4, 4, 4)
+        self.horizontalLayout_8.setObjectName("horizontalLayout_8")
+        self.LBL_PELCO = QtWidgets.QLabel(parent=self.groupBox_7)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.LBL_PELCO.sizePolicy().hasHeightForWidth())
+        self.LBL_PELCO.setSizePolicy(sizePolicy)
+        self.LBL_PELCO.setMinimumSize(QtCore.QSize(40, 0))
+        self.LBL_PELCO.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.LBL_PELCO.setObjectName("LBL_PELCO")
+        self.horizontalLayout_8.addWidget(self.LBL_PELCO)
+        self.lineEdit = QtWidgets.QLineEdit(parent=self.groupBox_7)
+        self.lineEdit.setMinimumSize(QtCore.QSize(0, 36))
+        self.lineEdit.setStyleSheet("QLineEdit\n"
+"{\n"
+"    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(118, 118, 118, 255),stop:1 rgba(70, 70, 70, 255));\n"
+"    border: 1px solid #333333;\n"
+"    border-radius: 3px;\n"
+"    padding-left: 6px;\n"
+"    color: lightgray;\n"
+"    font-weight: bold;\n"
+"    height: 20px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QLineEdit::disabled\n"
+"{\n"
+"    background-color: #404040;\n"
+"    color: #656565;\n"
+"    border-color: #051a39;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QLineEdit:hover\n"
+"{\n"
+"    background-color: #646464;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QLineEdit:on\n"
+"{\n"
+"    background-color: #979796;\n"
+"    color: #000000;\n"
+"\n"
+"}")
+        self.lineEdit.setObjectName("lineEdit")
+        self.horizontalLayout_8.addWidget(self.lineEdit)
+        self.BTN_SET_COM_2 = QtWidgets.QPushButton(parent=self.groupBox_7)
+        self.BTN_SET_COM_2.setMinimumSize(QtCore.QSize(100, 36))
+        self.BTN_SET_COM_2.setObjectName("BTN_SET_COM_2")
+        self.horizontalLayout_8.addWidget(self.BTN_SET_COM_2)
+        self.verticalLayout_2.addWidget(self.groupBox_7)
+        self.groupBox_2 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        self.groupBox_2.setObjectName("groupBox_2")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.groupBox_2)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.FRAME_0 = QtWidgets.QLCDNumber(parent=self.groupBox_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.FRAME_0.sizePolicy().hasHeightForWidth())
+        self.FRAME_0.setSizePolicy(sizePolicy)
+        self.FRAME_0.setMinimumSize(QtCore.QSize(0, 60))
+        self.FRAME_0.setAutoFillBackground(False)
+        self.FRAME_0.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.FRAME_0.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.FRAME_0.setLineWidth(1)
+        self.FRAME_0.setMidLineWidth(0)
+        self.FRAME_0.setDigitCount(2)
+        self.FRAME_0.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.FRAME_0.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.FRAME_0.setProperty("intValue", 255)
+        self.FRAME_0.setObjectName("FRAME_0")
+        self.horizontalLayout.addWidget(self.FRAME_0)
+        self.FRAME_1 = QtWidgets.QLCDNumber(parent=self.groupBox_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.FRAME_1.sizePolicy().hasHeightForWidth())
+        self.FRAME_1.setSizePolicy(sizePolicy)
+        self.FRAME_1.setMinimumSize(QtCore.QSize(0, 60))
+        self.FRAME_1.setAutoFillBackground(False)
+        self.FRAME_1.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.FRAME_1.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.FRAME_1.setLineWidth(1)
+        self.FRAME_1.setMidLineWidth(0)
+        self.FRAME_1.setDigitCount(2)
+        self.FRAME_1.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.FRAME_1.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.FRAME_1.setProperty("intValue", 255)
+        self.FRAME_1.setObjectName("FRAME_1")
+        self.horizontalLayout.addWidget(self.FRAME_1)
+        self.FRAME_2 = QtWidgets.QLCDNumber(parent=self.groupBox_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.FRAME_2.sizePolicy().hasHeightForWidth())
+        self.FRAME_2.setSizePolicy(sizePolicy)
+        self.FRAME_2.setMinimumSize(QtCore.QSize(0, 60))
+        self.FRAME_2.setAutoFillBackground(False)
+        self.FRAME_2.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.FRAME_2.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.FRAME_2.setLineWidth(1)
+        self.FRAME_2.setMidLineWidth(0)
+        self.FRAME_2.setDigitCount(2)
+        self.FRAME_2.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.FRAME_2.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.FRAME_2.setProperty("intValue", 255)
+        self.FRAME_2.setObjectName("FRAME_2")
+        self.horizontalLayout.addWidget(self.FRAME_2)
+        self.FRAME_3 = QtWidgets.QLCDNumber(parent=self.groupBox_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.FRAME_3.sizePolicy().hasHeightForWidth())
+        self.FRAME_3.setSizePolicy(sizePolicy)
+        self.FRAME_3.setMinimumSize(QtCore.QSize(0, 60))
+        self.FRAME_3.setAutoFillBackground(False)
+        self.FRAME_3.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.FRAME_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.FRAME_3.setLineWidth(1)
+        self.FRAME_3.setMidLineWidth(0)
+        self.FRAME_3.setDigitCount(2)
+        self.FRAME_3.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.FRAME_3.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.FRAME_3.setProperty("intValue", 255)
+        self.FRAME_3.setObjectName("FRAME_3")
+        self.horizontalLayout.addWidget(self.FRAME_3)
+        self.FRAME_4 = QtWidgets.QLCDNumber(parent=self.groupBox_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.FRAME_4.sizePolicy().hasHeightForWidth())
+        self.FRAME_4.setSizePolicy(sizePolicy)
+        self.FRAME_4.setMinimumSize(QtCore.QSize(0, 60))
+        self.FRAME_4.setAutoFillBackground(False)
+        self.FRAME_4.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.FRAME_4.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.FRAME_4.setLineWidth(1)
+        self.FRAME_4.setMidLineWidth(0)
+        self.FRAME_4.setSmallDecimalPoint(False)
+        self.FRAME_4.setDigitCount(2)
+        self.FRAME_4.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.FRAME_4.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.FRAME_4.setProperty("intValue", 255)
+        self.FRAME_4.setObjectName("FRAME_4")
+        self.horizontalLayout.addWidget(self.FRAME_4)
+        self.FRAME_5 = QtWidgets.QLCDNumber(parent=self.groupBox_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.FRAME_5.sizePolicy().hasHeightForWidth())
+        self.FRAME_5.setSizePolicy(sizePolicy)
+        self.FRAME_5.setMinimumSize(QtCore.QSize(0, 60))
+        self.FRAME_5.setAutoFillBackground(False)
+        self.FRAME_5.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.FRAME_5.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.FRAME_5.setLineWidth(1)
+        self.FRAME_5.setMidLineWidth(0)
+        self.FRAME_5.setDigitCount(2)
+        self.FRAME_5.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.FRAME_5.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.FRAME_5.setProperty("intValue", 255)
+        self.FRAME_5.setObjectName("FRAME_5")
+        self.horizontalLayout.addWidget(self.FRAME_5)
+        self.FRAME_6 = QtWidgets.QLCDNumber(parent=self.groupBox_2)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.FRAME_6.sizePolicy().hasHeightForWidth())
+        self.FRAME_6.setSizePolicy(sizePolicy)
+        self.FRAME_6.setMinimumSize(QtCore.QSize(0, 60))
+        self.FRAME_6.setAutoFillBackground(False)
+        self.FRAME_6.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.FRAME_6.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.FRAME_6.setLineWidth(1)
+        self.FRAME_6.setMidLineWidth(0)
+        self.FRAME_6.setDigitCount(2)
+        self.FRAME_6.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.FRAME_6.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.FRAME_6.setProperty("intValue", 255)
+        self.FRAME_6.setObjectName("FRAME_6")
+        self.horizontalLayout.addWidget(self.FRAME_6)
+        self.verticalLayout_2.addWidget(self.groupBox_2)
+        self.groupBox_4 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        self.groupBox_4.setAutoFillBackground(False)
+        self.groupBox_4.setObjectName("groupBox_4")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.groupBox_4)
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_3.setSpacing(0)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.RFRAME_0 = QtWidgets.QLCDNumber(parent=self.groupBox_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.RFRAME_0.sizePolicy().hasHeightForWidth())
+        self.RFRAME_0.setSizePolicy(sizePolicy)
+        self.RFRAME_0.setMinimumSize(QtCore.QSize(0, 60))
+        self.RFRAME_0.setAutoFillBackground(True)
+        self.RFRAME_0.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.RFRAME_0.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.RFRAME_0.setLineWidth(1)
+        self.RFRAME_0.setMidLineWidth(0)
+        self.RFRAME_0.setDigitCount(2)
+        self.RFRAME_0.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.RFRAME_0.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.RFRAME_0.setProperty("intValue", 255)
+        self.RFRAME_0.setObjectName("RFRAME_0")
+        self.horizontalLayout_3.addWidget(self.RFRAME_0)
+        self.RFRAME_1 = QtWidgets.QLCDNumber(parent=self.groupBox_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.RFRAME_1.sizePolicy().hasHeightForWidth())
+        self.RFRAME_1.setSizePolicy(sizePolicy)
+        self.RFRAME_1.setMinimumSize(QtCore.QSize(0, 60))
+        self.RFRAME_1.setAutoFillBackground(True)
+        self.RFRAME_1.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.RFRAME_1.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.RFRAME_1.setLineWidth(1)
+        self.RFRAME_1.setMidLineWidth(0)
+        self.RFRAME_1.setDigitCount(2)
+        self.RFRAME_1.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.RFRAME_1.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.RFRAME_1.setProperty("intValue", 255)
+        self.RFRAME_1.setObjectName("RFRAME_1")
+        self.horizontalLayout_3.addWidget(self.RFRAME_1)
+        self.RFRAME_2 = QtWidgets.QLCDNumber(parent=self.groupBox_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.RFRAME_2.sizePolicy().hasHeightForWidth())
+        self.RFRAME_2.setSizePolicy(sizePolicy)
+        self.RFRAME_2.setMinimumSize(QtCore.QSize(0, 60))
+        self.RFRAME_2.setAutoFillBackground(True)
+        self.RFRAME_2.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.RFRAME_2.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.RFRAME_2.setLineWidth(1)
+        self.RFRAME_2.setMidLineWidth(0)
+        self.RFRAME_2.setDigitCount(2)
+        self.RFRAME_2.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.RFRAME_2.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.RFRAME_2.setProperty("intValue", 255)
+        self.RFRAME_2.setObjectName("RFRAME_2")
+        self.horizontalLayout_3.addWidget(self.RFRAME_2)
+        self.RFRAME_3 = QtWidgets.QLCDNumber(parent=self.groupBox_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.RFRAME_3.sizePolicy().hasHeightForWidth())
+        self.RFRAME_3.setSizePolicy(sizePolicy)
+        self.RFRAME_3.setMinimumSize(QtCore.QSize(0, 60))
+        self.RFRAME_3.setAutoFillBackground(True)
+        self.RFRAME_3.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.RFRAME_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.RFRAME_3.setLineWidth(1)
+        self.RFRAME_3.setMidLineWidth(0)
+        self.RFRAME_3.setDigitCount(2)
+        self.RFRAME_3.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.RFRAME_3.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.RFRAME_3.setProperty("intValue", 255)
+        self.RFRAME_3.setObjectName("RFRAME_3")
+        self.horizontalLayout_3.addWidget(self.RFRAME_3)
+        self.RFRAME_4 = QtWidgets.QLCDNumber(parent=self.groupBox_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.RFRAME_4.sizePolicy().hasHeightForWidth())
+        self.RFRAME_4.setSizePolicy(sizePolicy)
+        self.RFRAME_4.setMinimumSize(QtCore.QSize(0, 60))
+        self.RFRAME_4.setAutoFillBackground(True)
+        self.RFRAME_4.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.RFRAME_4.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.RFRAME_4.setLineWidth(1)
+        self.RFRAME_4.setMidLineWidth(0)
+        self.RFRAME_4.setSmallDecimalPoint(False)
+        self.RFRAME_4.setDigitCount(2)
+        self.RFRAME_4.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.RFRAME_4.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.RFRAME_4.setProperty("intValue", 255)
+        self.RFRAME_4.setObjectName("RFRAME_4")
+        self.horizontalLayout_3.addWidget(self.RFRAME_4)
+        self.RFRAME_5 = QtWidgets.QLCDNumber(parent=self.groupBox_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.RFRAME_5.sizePolicy().hasHeightForWidth())
+        self.RFRAME_5.setSizePolicy(sizePolicy)
+        self.RFRAME_5.setMinimumSize(QtCore.QSize(0, 60))
+        self.RFRAME_5.setAutoFillBackground(True)
+        self.RFRAME_5.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.RFRAME_5.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.RFRAME_5.setLineWidth(1)
+        self.RFRAME_5.setMidLineWidth(0)
+        self.RFRAME_5.setDigitCount(2)
+        self.RFRAME_5.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.RFRAME_5.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.RFRAME_5.setProperty("intValue", 255)
+        self.RFRAME_5.setObjectName("RFRAME_5")
+        self.horizontalLayout_3.addWidget(self.RFRAME_5)
+        self.RFRAME_6 = QtWidgets.QLCDNumber(parent=self.groupBox_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.RFRAME_6.sizePolicy().hasHeightForWidth())
+        self.RFRAME_6.setSizePolicy(sizePolicy)
+        self.RFRAME_6.setMinimumSize(QtCore.QSize(0, 60))
+        self.RFRAME_6.setAutoFillBackground(True)
+        self.RFRAME_6.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.RFRAME_6.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.RFRAME_6.setLineWidth(1)
+        self.RFRAME_6.setMidLineWidth(0)
+        self.RFRAME_6.setDigitCount(2)
+        self.RFRAME_6.setMode(QtWidgets.QLCDNumber.Mode.Hex)
+        self.RFRAME_6.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.RFRAME_6.setProperty("intValue", 255)
+        self.RFRAME_6.setObjectName("RFRAME_6")
+        self.horizontalLayout_3.addWidget(self.RFRAME_6)
+        self.verticalLayout_2.addWidget(self.groupBox_4)
+        spacerItem = QtWidgets.QSpacerItem(20, 30, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Preferred)
+        self.verticalLayout_2.addItem(spacerItem)
+        self.groupBox_6 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        self.groupBox_6.setObjectName("groupBox_6")
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.groupBox_6)
+        self.horizontalLayout_7.setContentsMargins(4, 4, 4, 4)
+        self.horizontalLayout_7.setSpacing(8)
+        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        self.BTN_SET_H_SPD = QtWidgets.QPushButton(parent=self.groupBox_6)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.BTN_RT.sizePolicy().hasHeightForWidth())
-        self.BTN_RT.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setPointSize(24)
-        font.setBold(True)
-        self.BTN_RT.setFont(font)
-        self.BTN_RT.setCheckable(True)
-        self.BTN_RT.setObjectName("BTN_RT")
-        self.DPAD.addWidget(self.BTN_RT, 1, 2, 1, 1)
-        self.BTN_UP = QtWidgets.QPushButton(parent=self.DPAD_GRID)
+        sizePolicy.setHeightForWidth(self.BTN_SET_H_SPD.sizePolicy().hasHeightForWidth())
+        self.BTN_SET_H_SPD.setSizePolicy(sizePolicy)
+        self.BTN_SET_H_SPD.setObjectName("BTN_SET_H_SPD")
+        self.horizontalLayout_7.addWidget(self.BTN_SET_H_SPD)
+        self.BTN_SET_V_SPD = QtWidgets.QPushButton(parent=self.groupBox_6)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.BTN_UP.sizePolicy().hasHeightForWidth())
-        self.BTN_UP.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setPointSize(24)
-        font.setBold(True)
-        self.BTN_UP.setFont(font)
-        self.BTN_UP.setCheckable(True)
-        self.BTN_UP.setObjectName("BTN_UP")
-        self.DPAD.addWidget(self.BTN_UP, 0, 1, 1, 1)
-        self.BTN_LT = QtWidgets.QPushButton(parent=self.DPAD_GRID)
+        sizePolicy.setHeightForWidth(self.BTN_SET_V_SPD.sizePolicy().hasHeightForWidth())
+        self.BTN_SET_V_SPD.setSizePolicy(sizePolicy)
+        self.BTN_SET_V_SPD.setObjectName("BTN_SET_V_SPD")
+        self.horizontalLayout_7.addWidget(self.BTN_SET_V_SPD)
+        self.verticalLayout_2.addWidget(self.groupBox_6)
+        self.groupBox_5 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        self.groupBox_5.setObjectName("groupBox_5")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.groupBox_5)
+        self.horizontalLayout_5.setContentsMargins(4, 4, 4, 4)
+        self.horizontalLayout_5.setSpacing(8)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.BTN_SET_H_POS = QtWidgets.QPushButton(parent=self.groupBox_5)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.BTN_LT.sizePolicy().hasHeightForWidth())
-        self.BTN_LT.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setPointSize(24)
-        font.setBold(True)
-        self.BTN_LT.setFont(font)
-        self.BTN_LT.setCheckable(True)
-        self.BTN_LT.setObjectName("BTN_LT")
-        self.DPAD.addWidget(self.BTN_LT, 1, 0, 1, 1)
-        self.BTN_STOP = QtWidgets.QPushButton(parent=self.DPAD_GRID)
+        sizePolicy.setHeightForWidth(self.BTN_SET_H_POS.sizePolicy().hasHeightForWidth())
+        self.BTN_SET_H_POS.setSizePolicy(sizePolicy)
+        self.BTN_SET_H_POS.setObjectName("BTN_SET_H_POS")
+        self.horizontalLayout_5.addWidget(self.BTN_SET_H_POS)
+        self.BTN_SET_V_POS = QtWidgets.QPushButton(parent=self.groupBox_5)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.BTN_STOP.sizePolicy().hasHeightForWidth())
-        self.BTN_STOP.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.BTN_SET_V_POS.sizePolicy().hasHeightForWidth())
+        self.BTN_SET_V_POS.setSizePolicy(sizePolicy)
+        self.BTN_SET_V_POS.setObjectName("BTN_SET_V_POS")
+        self.horizontalLayout_5.addWidget(self.BTN_SET_V_POS)
+        self.verticalLayout_2.addWidget(self.groupBox_5)
+        self.horizontalLayout_4.addLayout(self.verticalLayout_2)
+        self.BAR_V_POS = QtWidgets.QVBoxLayout()
+        self.BAR_V_POS.setSpacing(8)
+        self.BAR_V_POS.setObjectName("BAR_V_POS")
+        self.SLIDER_V_POS = QtWidgets.QSlider(parent=self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.MinimumExpanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.SLIDER_V_POS.sizePolicy().hasHeightForWidth())
+        self.SLIDER_V_POS.setSizePolicy(sizePolicy)
+        self.SLIDER_V_POS.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.SLIDER_V_POS.setMaximum(5900)
+        self.SLIDER_V_POS.setPageStep(1)
+        self.SLIDER_V_POS.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.SLIDER_V_POS.setInvertedAppearance(False)
+        self.SLIDER_V_POS.setInvertedControls(False)
+        self.SLIDER_V_POS.setTickPosition(QtWidgets.QSlider.TickPosition.TicksBothSides)
+        self.SLIDER_V_POS.setTickInterval(500)
+        self.SLIDER_V_POS.setObjectName("SLIDER_V_POS")
+        self.BAR_V_POS.addWidget(self.SLIDER_V_POS)
+        self.NUM_SET_V = QtWidgets.QLCDNumber(parent=self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.NUM_SET_V.sizePolicy().hasHeightForWidth())
+        self.NUM_SET_V.setSizePolicy(sizePolicy)
+        self.NUM_SET_V.setMinimumSize(QtCore.QSize(120, 50))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setFamily("Verdana")
+        font.setPointSize(20)
         font.setBold(False)
-        self.BTN_STOP.setFont(font)
-        self.BTN_STOP.setCheckable(True)
-        self.BTN_STOP.setChecked(True)
-        self.BTN_STOP.setObjectName("BTN_STOP")
-        self.DPAD.addWidget(self.BTN_STOP, 1, 1, 1, 1)
-        self.BTN_UPLT = QtWidgets.QPushButton(parent=self.DPAD_GRID)
+        self.NUM_SET_V.setFont(font)
+        self.NUM_SET_V.setAutoFillBackground(False)
+        self.NUM_SET_V.setStyleSheet("QLCDNumber\n"
+"{\n"
+"    background-color: 0\n"
+"}\n"
+"")
+        self.NUM_SET_V.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.NUM_SET_V.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.NUM_SET_V.setLineWidth(2)
+        self.NUM_SET_V.setSegmentStyle(QtWidgets.QLCDNumber.SegmentStyle.Flat)
+        self.NUM_SET_V.setObjectName("NUM_SET_V")
+        self.BAR_V_POS.addWidget(self.NUM_SET_V)
+        self.horizontalLayout_4.addLayout(self.BAR_V_POS)
+        self.groupBox = QtWidgets.QGroupBox(parent=self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
+        self.groupBox.setSizePolicy(sizePolicy)
+        self.groupBox.setSizeIncrement(QtCore.QSize(0, 0))
+        self.groupBox.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
+        self.groupBox.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.groupBox.setFlat(False)
+        self.groupBox.setCheckable(False)
+        self.groupBox.setObjectName("groupBox")
+        self.gridLayout = QtWidgets.QGridLayout(self.groupBox)
+        self.gridLayout.setContentsMargins(8, 8, 8, 8)
+        self.gridLayout.setSpacing(8)
+        self.gridLayout.setObjectName("gridLayout")
+        self.BTN_UPLT = QtWidgets.QPushButton(parent=self.groupBox)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.BTN_UPLT.sizePolicy().hasHeightForWidth())
         self.BTN_UPLT.setSizePolicy(sizePolicy)
+        self.BTN_UPLT.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
+        font.setFamily("Microsoft YaHei UI")
         font.setPointSize(24)
         font.setBold(True)
         self.BTN_UPLT.setFont(font)
         self.BTN_UPLT.setCheckable(True)
+        self.BTN_UPLT.setAutoExclusive(True)
         self.BTN_UPLT.setObjectName("BTN_UPLT")
-        self.DPAD.addWidget(self.BTN_UPLT, 0, 0, 1, 1)
-        self.BTN_UPRT = QtWidgets.QPushButton(parent=self.DPAD_GRID)
+        self.gridLayout.addWidget(self.BTN_UPLT, 0, 0, 1, 1)
+        self.BTN_UP = QtWidgets.QPushButton(parent=self.groupBox)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.BTN_UPRT.sizePolicy().hasHeightForWidth())
-        self.BTN_UPRT.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.BTN_UP.sizePolicy().hasHeightForWidth())
+        self.BTN_UP.setSizePolicy(sizePolicy)
+        self.BTN_UP.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
+        font.setFamily("Microsoft YaHei UI")
         font.setPointSize(24)
         font.setBold(True)
-        self.BTN_UPRT.setFont(font)
-        self.BTN_UPRT.setCheckable(True)
-        self.BTN_UPRT.setObjectName("BTN_UPRT")
-        self.DPAD.addWidget(self.BTN_UPRT, 0, 2, 1, 1)
-        self.BTN_DN = QtWidgets.QPushButton(parent=self.DPAD_GRID)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.BTN_DN.sizePolicy().hasHeightForWidth())
-        self.BTN_DN.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setPointSize(24)
-        font.setBold(True)
-        self.BTN_DN.setFont(font)
-        self.BTN_DN.setCheckable(True)
-        self.BTN_DN.setObjectName("BTN_DN")
-        self.DPAD.addWidget(self.BTN_DN, 2, 1, 1, 1)
-        self.BTN_DNLT = QtWidgets.QPushButton(parent=self.DPAD_GRID)
+        self.BTN_UP.setFont(font)
+        self.BTN_UP.setCheckable(True)
+        self.BTN_UP.setAutoExclusive(True)
+        self.BTN_UP.setObjectName("BTN_UP")
+        self.gridLayout.addWidget(self.BTN_UP, 0, 1, 1, 1)
+        self.BTN_DNLT = QtWidgets.QPushButton(parent=self.groupBox)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.BTN_DNLT.sizePolicy().hasHeightForWidth())
         self.BTN_DNLT.setSizePolicy(sizePolicy)
+        self.BTN_DNLT.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
+        font.setFamily("Microsoft YaHei UI")
         font.setPointSize(24)
         font.setBold(True)
         self.BTN_DNLT.setFont(font)
         self.BTN_DNLT.setCheckable(True)
+        self.BTN_DNLT.setAutoExclusive(True)
         self.BTN_DNLT.setObjectName("BTN_DNLT")
-        self.DPAD.addWidget(self.BTN_DNLT, 2, 0, 1, 1)
-        self.BTN_DNRT = QtWidgets.QPushButton(parent=self.DPAD_GRID)
+        self.gridLayout.addWidget(self.BTN_DNLT, 2, 0, 1, 1)
+        self.BTN_STOP = QtWidgets.QPushButton(parent=self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.BTN_STOP.sizePolicy().hasHeightForWidth())
+        self.BTN_STOP.setSizePolicy(sizePolicy)
+        self.BTN_STOP.setMinimumSize(QtCore.QSize(0, 100))
+        self.BTN_STOP.setSizeIncrement(QtCore.QSize(100, 100))
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        font.setBold(True)
+        self.BTN_STOP.setFont(font)
+        self.BTN_STOP.setCheckable(True)
+        self.BTN_STOP.setChecked(True)
+        self.BTN_STOP.setAutoExclusive(True)
+        self.BTN_STOP.setObjectName("BTN_STOP")
+        self.gridLayout.addWidget(self.BTN_STOP, 1, 1, 1, 1)
+        self.BTN_LT = QtWidgets.QPushButton(parent=self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.BTN_LT.sizePolicy().hasHeightForWidth())
+        self.BTN_LT.setSizePolicy(sizePolicy)
+        self.BTN_LT.setMinimumSize(QtCore.QSize(0, 100))
+        font = QtGui.QFont()
+        font.setFamily("Microsoft YaHei UI")
+        font.setPointSize(24)
+        font.setBold(True)
+        self.BTN_LT.setFont(font)
+        self.BTN_LT.setCheckable(True)
+        self.BTN_LT.setAutoExclusive(True)
+        self.BTN_LT.setObjectName("BTN_LT")
+        self.gridLayout.addWidget(self.BTN_LT, 1, 0, 1, 1)
+        self.BTN_DNRT = QtWidgets.QPushButton(parent=self.groupBox)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.BTN_DNRT.sizePolicy().hasHeightForWidth())
         self.BTN_DNRT.setSizePolicy(sizePolicy)
+        self.BTN_DNRT.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
+        font.setFamily("Microsoft YaHei UI")
         font.setPointSize(24)
         font.setBold(True)
         self.BTN_DNRT.setFont(font)
         self.BTN_DNRT.setCheckable(True)
+        self.BTN_DNRT.setAutoExclusive(True)
         self.BTN_DNRT.setObjectName("BTN_DNRT")
-        self.DPAD.addWidget(self.BTN_DNRT, 2, 2, 1, 1)
-        self.verticalLayoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 20, 891, 171))
-        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.HPOS_GRID = QtWidgets.QWidget(parent=self.verticalLayoutWidget)
+        self.gridLayout.addWidget(self.BTN_DNRT, 2, 2, 1, 1)
+        self.BTN_DN = QtWidgets.QPushButton(parent=self.groupBox)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.HPOS_GRID.sizePolicy().hasHeightForWidth())
-        self.HPOS_GRID.setSizePolicy(sizePolicy)
-        self.HPOS_GRID.setObjectName("HPOS_GRID")
-        self.HPOS_BAR = QtWidgets.QGridLayout(self.HPOS_GRID)
-        self.HPOS_BAR.setContentsMargins(9, 9, 9, 9)
-        self.HPOS_BAR.setObjectName("HPOS_BAR")
-        self.BTN_SET_H_POS = QtWidgets.QPushButton(parent=self.HPOS_GRID)
-        self.BTN_SET_H_POS.setObjectName("BTN_SET_H_POS")
-        self.HPOS_BAR.addWidget(self.BTN_SET_H_POS, 0, 2, 1, 1)
-        self.BAR_H_POS = QtWidgets.QProgressBar(parent=self.HPOS_GRID)
-        self.BAR_H_POS.setMaximum(35000)
-        self.BAR_H_POS.setProperty("value", 0)
-        self.BAR_H_POS.setTextVisible(False)
-        self.BAR_H_POS.setObjectName("BAR_H_POS")
-        self.HPOS_BAR.addWidget(self.BAR_H_POS, 1, 0, 1, 1)
-        self.NUM_GET_H_POS = QtWidgets.QLCDNumber(parent=self.HPOS_GRID)
-        self.NUM_GET_H_POS.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.NUM_GET_H_POS.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-        self.NUM_GET_H_POS.setObjectName("NUM_GET_H_POS")
-        self.HPOS_BAR.addWidget(self.NUM_GET_H_POS, 1, 1, 1, 1)
-        self.SLIDER_H_POS = QtWidgets.QSlider(parent=self.HPOS_GRID)
-        self.SLIDER_H_POS.setMaximum(35000)
-        self.SLIDER_H_POS.setPageStep(1)
-        self.SLIDER_H_POS.setTracking(True)
-        self.SLIDER_H_POS.setOrientation(QtCore.Qt.Orientation.Horizontal)
-        self.SLIDER_H_POS.setObjectName("SLIDER_H_POS")
-        self.HPOS_BAR.addWidget(self.SLIDER_H_POS, 0, 0, 1, 1)
-        self.NUM_SET_H_POS = QtWidgets.QLCDNumber(parent=self.HPOS_GRID)
-        self.NUM_SET_H_POS.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.NUM_SET_H_POS.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-        self.NUM_SET_H_POS.setObjectName("NUM_SET_H_POS")
-        self.HPOS_BAR.addWidget(self.NUM_SET_H_POS, 0, 1, 1, 1)
-        self.verticalLayout.addWidget(self.HPOS_GRID)
-        self.VPOS_GRID = QtWidgets.QWidget(parent=self.verticalLayoutWidget)
+        sizePolicy.setHeightForWidth(self.BTN_DN.sizePolicy().hasHeightForWidth())
+        self.BTN_DN.setSizePolicy(sizePolicy)
+        self.BTN_DN.setMinimumSize(QtCore.QSize(0, 100))
+        font = QtGui.QFont()
+        font.setFamily("Microsoft YaHei UI")
+        font.setPointSize(24)
+        font.setBold(True)
+        self.BTN_DN.setFont(font)
+        self.BTN_DN.setCheckable(True)
+        self.BTN_DN.setAutoExclusive(True)
+        self.BTN_DN.setObjectName("BTN_DN")
+        self.gridLayout.addWidget(self.BTN_DN, 2, 1, 1, 1)
+        self.BTN_RT = QtWidgets.QPushButton(parent=self.groupBox)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.VPOS_GRID.sizePolicy().hasHeightForWidth())
-        self.VPOS_GRID.setSizePolicy(sizePolicy)
-        self.VPOS_GRID.setObjectName("VPOS_GRID")
-        self.VPOS_BAR = QtWidgets.QGridLayout(self.VPOS_GRID)
-        self.VPOS_BAR.setObjectName("VPOS_BAR")
-        self.NUM_GET_V = QtWidgets.QLCDNumber(parent=self.VPOS_GRID)
-        self.NUM_GET_V.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.NUM_GET_V.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-        self.NUM_GET_V.setObjectName("NUM_GET_V")
-        self.VPOS_BAR.addWidget(self.NUM_GET_V, 1, 1, 1, 1)
-        self.SLIDER_V_POS = QtWidgets.QSlider(parent=self.VPOS_GRID)
-        self.SLIDER_V_POS.setMaximum(5900)
-        self.SLIDER_V_POS.setPageStep(1)
-        self.SLIDER_V_POS.setOrientation(QtCore.Qt.Orientation.Horizontal)
-        self.SLIDER_V_POS.setObjectName("SLIDER_V_POS")
-        self.VPOS_BAR.addWidget(self.SLIDER_V_POS, 0, 0, 1, 1)
-        self.BTN_SET_V_POS = QtWidgets.QPushButton(parent=self.VPOS_GRID)
-        self.BTN_SET_V_POS.setObjectName("BTN_SET_V_POS")
-        self.VPOS_BAR.addWidget(self.BTN_SET_V_POS, 0, 2, 1, 1)
-        self.BAR_V_POS = QtWidgets.QProgressBar(parent=self.VPOS_GRID)
-        self.BAR_V_POS.setMaximum(5900)
-        self.BAR_V_POS.setProperty("value", 0)
-        self.BAR_V_POS.setTextVisible(False)
-        self.BAR_V_POS.setObjectName("BAR_V_POS")
-        self.VPOS_BAR.addWidget(self.BAR_V_POS, 1, 0, 1, 1)
-        self.NUM_SET_V = QtWidgets.QLCDNumber(parent=self.VPOS_GRID)
-        self.NUM_SET_V.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.NUM_SET_V.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
-        self.NUM_SET_V.setObjectName("NUM_SET_V")
-        self.VPOS_BAR.addWidget(self.NUM_SET_V, 0, 1, 1, 1)
-        self.verticalLayout.addWidget(self.VPOS_GRID)
+        sizePolicy.setHeightForWidth(self.BTN_RT.sizePolicy().hasHeightForWidth())
+        self.BTN_RT.setSizePolicy(sizePolicy)
+        self.BTN_RT.setMinimumSize(QtCore.QSize(0, 100))
+        font = QtGui.QFont()
+        font.setFamily("Microsoft YaHei UI")
+        font.setPointSize(24)
+        font.setBold(True)
+        self.BTN_RT.setFont(font)
+        self.BTN_RT.setCheckable(True)
+        self.BTN_RT.setAutoExclusive(True)
+        self.BTN_RT.setObjectName("BTN_RT")
+        self.gridLayout.addWidget(self.BTN_RT, 1, 2, 1, 1)
+        self.BTN_UPRT = QtWidgets.QPushButton(parent=self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.BTN_UPRT.sizePolicy().hasHeightForWidth())
+        self.BTN_UPRT.setSizePolicy(sizePolicy)
+        self.BTN_UPRT.setMinimumSize(QtCore.QSize(0, 100))
+        font = QtGui.QFont()
+        font.setFamily("Microsoft YaHei UI")
+        font.setPointSize(24)
+        font.setBold(True)
+        self.BTN_UPRT.setFont(font)
+        self.BTN_UPRT.setCheckable(True)
+        self.BTN_UPRT.setAutoExclusive(True)
+        self.BTN_UPRT.setObjectName("BTN_UPRT")
+        self.gridLayout.addWidget(self.BTN_UPRT, 0, 2, 1, 1)
+        self.horizontalLayout_4.addWidget(self.groupBox)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_4)
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1042, 22))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.SLIDER_H_POS.valueChanged['int'].connect(self.NUM_SET_H_POS.display) # type: ignore
-        self.BAR_H_POS.valueChanged['int'].connect(self.NUM_GET_H_POS.display) # type: ignore
         self.SLIDER_V_POS.valueChanged['int'].connect(self.NUM_SET_V.display) # type: ignore
-        self.BAR_V_POS.valueChanged['int'].connect(self.NUM_GET_V.display) # type: ignore
-        self.BAR_V_POS.valueChanged['int'].connect(self.SLIDER_V_POS.setValue) # type: ignore
-        self.BAR_H_POS.valueChanged['int'].connect(self.SLIDER_H_POS.setValue) # type: ignore
+        self.BTN_STOP.toggled['bool'].connect(self.BTN_SET_H_POS.setEnabled) # type: ignore
+        self.BTN_STOP.toggled['bool'].connect(self.BTN_SET_V_POS.setEnabled) # type: ignore
+        self.BTN_STOP.toggled['bool'].connect(self.SLIDER_V_POS.setEnabled) # type: ignore
+        self.BTN_STOP.toggled['bool'].connect(self.SLIDER_H_POS.setEnabled) # type: ignore
+        self.SLIDER_H_POS.valueChanged['int'].connect(self.NUM_SET_H_POS.display) # type: ignore
+        self.BTN_STOP.toggled['bool'].connect(self.BTN_SET_H_SPD.setEnabled) # type: ignore
+        self.BTN_STOP.toggled['bool'].connect(self.BTN_SET_V_SPD.setEnabled) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.BTN_SET_COM.setText(_translate("MainWindow", "SET COM"))
-        self.label.setText(_translate("MainWindow", "COM"))
-        self.BTN_RT.setText(_translate("MainWindow", "→"))
-        self.BTN_UP.setText(_translate("MainWindow", "↑"))
-        self.BTN_LT.setText(_translate("MainWindow", "←"))
-        self.BTN_STOP.setText(_translate("MainWindow", "⬛"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Pelco-D Gimbal Controller"))
+        self.groupBox_3.setTitle(_translate("MainWindow", "Serial Port Setting"))
+        self.LBL_COM.setText(_translate("MainWindow", "COM"))
+        self.BTN_SET_COM.setText(_translate("MainWindow", "Close COM"))
+        self.groupBox_7.setTitle(_translate("MainWindow", "Run Program"))
+        self.LBL_PELCO.setText(_translate("MainWindow", "PELCO"))
+        self.BTN_SET_COM_2.setText(_translate("MainWindow", "Start Prog"))
+        self.groupBox_2.setTitle(_translate("MainWindow", "Transmit Data Frame"))
+        self.groupBox_4.setTitle(_translate("MainWindow", "Recieved Data Frame"))
+        self.groupBox_6.setTitle(_translate("MainWindow", "Velocity Set"))
+        self.BTN_SET_H_SPD.setText(_translate("MainWindow", "Set H Velocity"))
+        self.BTN_SET_V_SPD.setText(_translate("MainWindow", "Set V Velocity"))
+        self.groupBox_5.setTitle(_translate("MainWindow", "Position Set"))
+        self.BTN_SET_H_POS.setText(_translate("MainWindow", "Set H Position"))
+        self.BTN_SET_V_POS.setText(_translate("MainWindow", "Set V Position"))
+        self.groupBox.setTitle(_translate("MainWindow", "Pan-Tilt Direction"))
         self.BTN_UPLT.setText(_translate("MainWindow", "↖"))
-        self.BTN_UPRT.setText(_translate("MainWindow", "↗"))
-        self.BTN_DN.setText(_translate("MainWindow", "↓"))
+        self.BTN_UP.setText(_translate("MainWindow", "↑"))
         self.BTN_DNLT.setText(_translate("MainWindow", "↙"))
+        self.BTN_STOP.setText(_translate("MainWindow", "■"))
+        self.BTN_LT.setText(_translate("MainWindow", "←"))
         self.BTN_DNRT.setText(_translate("MainWindow", "↘"))
-        self.BTN_SET_H_POS.setText(_translate("MainWindow", "SET H"))
-        self.BAR_H_POS.setFormat(_translate("MainWindow", "%p"))
-        self.BTN_SET_V_POS.setText(_translate("MainWindow", "SET V"))
-        self.BAR_V_POS.setFormat(_translate("MainWindow", "%p"))
+        self.BTN_DN.setText(_translate("MainWindow", "↓"))
+        self.BTN_RT.setText(_translate("MainWindow", "→"))
+        self.BTN_UPRT.setText(_translate("MainWindow", "↗"))

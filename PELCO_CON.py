@@ -2,7 +2,6 @@ import serial
 
 global COLOR
 
-
 class COLOR():
     HINT = "\33[90m"
     ERROR = "\33[91m"
@@ -10,7 +9,6 @@ class COLOR():
     PROMPT = "\33[93m"
     DEBUG = "\33[94m"
     CLEAR = "\33[0m"
-
 
 class PELCOD_CONTROLLER():
     ADDR = 0x01
@@ -26,7 +24,7 @@ class PELCOD_CONTROLLER():
     def SET_SERIAL(self, COM):
         self.COM_PORT = COM
         try:
-            self.SERIAL = serial.Serial(self.COM_PORT, 9600, timeout=2)
+            self.SERIAL = serial.Serial(self.COM_PORT, 9600, timeout=10)
         except:
             return "COM OPEN FAILED"
         self.CLOSE_COM()
