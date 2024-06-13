@@ -3,10 +3,11 @@
 import sys, warnings, time
 from PyQt6 import QtCore, QtWidgets
 from PyQt6.QtCore import QThread, QObject, pyqtSignal
-from PyQt6.QtGui import QColor
-from PyQt6.QtWidgets import QGraphicsDropShadowEffect
+from PyQt6.QtGui import QColor, QShortcut, QKeySequence, QKeyEvent
+from PyQt6.QtWidgets import QGraphicsDropShadowEffect, QFileDialog
 from PELCO_QT import Ui_MainWindow
 from PELCO_CMD import PELCOD_CMD
+import serial.tools.list_ports
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
@@ -14,15 +15,17 @@ class GET_POS_THREAD(QThread):
     HPOS_TRIGGER = pyqtSignal()
     VPOS_TRIGGER = pyqtSignal()
     UPDATE_TRIGGER = pyqtSignal()
-
+    INTERVAL = 40
     def run(self):
         while True:
             self.HPOS_TRIGGER.emit()
-            time.sleep(0.02)
-            self.VPOS_TRIGGER.emit()
-            time.sleep(0.02)
+            self.msleep(self.INTERVAL)
             self.UPDATE_TRIGGER.emit()
-            time.sleep(0.02)
+            self.msleep(self.INTERVAL)
+            self.VPOS_TRIGGER.emit()
+            self.msleep(self.INTERVAL)
+            self.UPDATE_TRIGGER.emit()
+            self.msleep(self.INTERVAL)
 
 class PELCO_FOR_GUI(PELCOD_CMD, QObject):
     FRAME = [0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
@@ -80,6 +83,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setupUi(self)
+
+        self.LIST_COM_PORT()
 
         self.PELCO = PELCO_FOR_GUI()
         if (self.PELCO.SET_SERIAL(self.PELCO.COM_PORT) != "COM OPEN OK"):
@@ -166,9 +171,35 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.RFRAME_5.display('{:0>2X}'.format(self.PELCO.RFRAME[5]))
             self.RFRAME_6.display('{:0>2X}'.format(self.PELCO.RFRAME[6]))
                 
+        self.BTN_OPEN.clicked.connect(self.OPEN_PROGRAM)
         self.PELCO.COM_BUSY_SIGNAL.connect(UPDATE_FRAME)
-        pass
-        
+        self.MVDNLT_KEY = QShortcut(QKeySequence("Ctrl+1"), self)
+        self.MVDNLT_KEY.activated.connect(self.BTN_DNLT.click)
+        self.MVDN_KEY = QShortcut(QKeySequence("Ctrl+2"), self)
+        self.MVDN_KEY.activated.connect(self.BTN_DN.click)
+        self.MVDNRT_KEY = QShortcut(QKeySequence("Ctrl+3"), self)
+        self.MVDNRT_KEY.activated.connect(self.BTN_DNRT.click)
+        self.MVLT_KEY = QShortcut(QKeySequence("Ctrl+4"), self)
+        self.MVLT_KEY.activated.connect(self.BTN_LT.click)
+        self.MVSTOP_KEY = QShortcut(QKeySequence("Ctrl+5"), self)
+        self.MVSTOP_KEY.activated.connect(self.BTN_STOP.click)
+        self.MVRT_KEY = QShortcut(QKeySequence("Ctrl+6"), self)
+        self.MVRT_KEY.activated.connect(self.BTN_RT.click)
+        self.MVUPLT_KEY = QShortcut(QKeySequence("Ctrl+7"), self)
+        self.MVUPLT_KEY.activated.connect(self.BTN_UPLT.click)
+        self.MVUP_KEY = QShortcut(QKeySequence("Ctrl+8"), self)
+        self.MVUP_KEY.activated.connect(self.BTN_UP.click)
+        self.MVUPRT_KEY = QShortcut(QKeySequence("Ctrl+9"), self)
+        self.MVUPRT_KEY.activated.connect(self.BTN_UPRT.click)
+
+    def LIST_COM_PORT(self):
+        COM_LIST = serial.tools.list_ports.comports()
+
+        DEVLIST = {}
+        for PORT in COM_LIST:
+            DEVLIST[PORT.description] = PORT.name
+            self.BOX_COM_LST.addItem(PORT.description)
+
     def SAVE_COM_PORT(self):
         LINE_COMPORT = "    COM_PORT = \""
         
@@ -190,13 +221,18 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             widget.setGraphicsEffect(SHADOW)
 
         for OBJECT in self.findChildren(QtWidgets.QLCDNumber):
-            addShadowEffect(OBJECT, 3, 128)
+            addShadowEffect(OBJECT, 2, 128)
         
         for OBJECT in self.findChildren(QtWidgets.QSlider) + self.findChildren(QtWidgets.QGroupBox):
             addShadowEffect(OBJECT, 2, 96)
 
         addShadowEffect(self.LBL_COM, 1, 128)
         addShadowEffect(self.LBL_PELCO, 1, 128)
+
+    def OPEN_PROGRAM(self):
+        PATH = QFileDialog.getOpenFileName(self, "Load PELCO Program File", self.BOX_FILE.text(), "PELCO Code (*.PELCO)")[0]
+        self.BOX_FILE.setText(PATH)
+        pass
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

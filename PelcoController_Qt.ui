@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>1120</width>
-    <height>620</height>
+    <height>640</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>1120</width>
-    <height>620</height>
+    <height>640</height>
    </size>
   </property>
   <property name="font">
@@ -211,7 +211,7 @@ QPushButton::checked
 	color: #ffffff;
 	border-style: solid;
 	border-width: 4px;
-	border-radius: 3px;
+	border-radius: 5px;
 	border-color: #000000;
 	padding: 5px;
 
@@ -282,14 +282,12 @@ QComboBox::disabled
 	background-color: #404040;
 	color: #656565;
 	border-color: #051a39;
-
 }
 
 
 QComboBox:hover
 {
     background-color: #646464;
-
 }
 
 
@@ -297,7 +295,6 @@ QComboBox:on
 {
     background-color: #979796;
 	color: #000000;
-
 }
 
 
@@ -309,7 +306,6 @@ QComboBox QAbstractItemView
     selection-background-color: #363942;
     selection-color: #ffffff;
     outline: 0;
-
 }
 
 
@@ -317,20 +313,18 @@ QComboBox::drop-down
 {
     subcontrol-origin: padding;
     subcontrol-position: top right;
-    width: 15px;
+    width: 30px;
     border-left-width: 1px;
     border-left-color: darkgray;
     border-left-style: solid; 
     border-top-right-radius: 3px; 
     border-bottom-right-radius: 3px;
-
 }
-
 
 QComboBox::down-arrow
 {
     image: url(://arrow-down.png);
-    width: 8px;
+    width: 24px;
     height: 8px;
 }
 
@@ -1328,13 +1322,13 @@ QStatusBar
             <number>4</number>
            </property>
            <property name="topMargin">
-            <number>4</number>
+            <number>5</number>
            </property>
            <property name="rightMargin">
             <number>4</number>
            </property>
            <property name="bottomMargin">
-            <number>4</number>
+            <number>5</number>
            </property>
            <item>
             <widget class="QLabel" name="LBL_COM">
@@ -1366,9 +1360,9 @@ QStatusBar
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBox">
+            <widget class="QComboBox" name="BOX_COM_LST">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -1389,143 +1383,30 @@ QStatusBar
              <property name="editable">
               <bool>true</bool>
              </property>
+             <property name="currentText">
+              <string>COM</string>
+             </property>
+             <property name="placeholderText">
+              <string/>
+             </property>
+             <property name="duplicatesEnabled">
+              <bool>true</bool>
+             </property>
+             <property name="frame">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item>
             <widget class="QPushButton" name="BTN_SET_COM">
-             <property name="minimumSize">
-              <size>
-               <width>105</width>
-               <height>36</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Tahoma</family>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>Close COM</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox_7">
-          <property name="font">
-           <font>
-            <family>Tahoma</family>
-            <pointsize>11</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="title">
-           <string>Run Program</string>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_8">
-           <property name="leftMargin">
-            <number>4</number>
-           </property>
-           <property name="topMargin">
-            <number>4</number>
-           </property>
-           <property name="rightMargin">
-            <number>4</number>
-           </property>
-           <property name="bottomMargin">
-            <number>4</number>
-           </property>
-           <item>
-            <widget class="QLabel" name="LBL_PELCO">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
              <property name="minimumSize">
               <size>
-               <width>55</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Tahoma</family>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>PELCO</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEdit">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>36</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Tahoma</family>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QLineEdit
-{
-    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(118, 118, 118, 255),stop:1 rgba(70, 70, 70, 255));
-    border: 1px solid #333333;
-    border-radius: 3px;
-    padding-left: 6px;
-    color: lightgray;
-	font-weight: bold;
-    height: 20px;
-
-}
-
-
-QLineEdit::disabled
-{
-	background-color: #404040;
-	color: #656565;
-	border-color: #051a39;
-
-}
-
-
-QLineEdit:hover
-{
-    background-color: #646464;
-
-}
-
-
-QLineEdit:on
-{
-    background-color: #979796;
-	color: #000000;
-
-}</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="BTN_SET_COM_2">
-             <property name="minimumSize">
-              <size>
                <width>105</width>
                <height>36</height>
               </size>
@@ -1538,7 +1419,13 @@ QLineEdit:on
               </font>
              </property>
              <property name="text">
-              <string>Start Prog</string>
+              <string>Opened</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -1547,6 +1434,12 @@ QLineEdit:on
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="font">
            <font>
             <family>Tahoma</family>
@@ -1571,18 +1464,18 @@ QLineEdit:on
             <number>0</number>
            </property>
            <property name="topMargin">
-            <number>0</number>
+            <number>5</number>
            </property>
            <property name="rightMargin">
             <number>0</number>
            </property>
            <property name="bottomMargin">
-            <number>0</number>
+            <number>5</number>
            </property>
            <item>
             <widget class="QLCDNumber" name="FRAME_0">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -1639,7 +1532,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="FRAME_1">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -1696,7 +1589,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="FRAME_2">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -1753,7 +1646,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="FRAME_3">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -1810,7 +1703,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="FRAME_4">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -1870,7 +1763,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="FRAME_5">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -1927,7 +1820,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="FRAME_6">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -1986,6 +1879,12 @@ QLineEdit:on
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="font">
            <font>
             <family>Tahoma</family>
@@ -2003,7 +1902,7 @@ QLineEdit:on
 }</string>
           </property>
           <property name="title">
-           <string>Recieved Data Frame</string>
+           <string>Recieve Data Frame</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <property name="spacing">
@@ -2013,18 +1912,18 @@ QLineEdit:on
             <number>0</number>
            </property>
            <property name="topMargin">
-            <number>0</number>
+            <number>5</number>
            </property>
            <property name="rightMargin">
             <number>0</number>
            </property>
            <property name="bottomMargin">
-            <number>0</number>
+            <number>5</number>
            </property>
            <item>
             <widget class="QLCDNumber" name="RFRAME_0">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -2081,7 +1980,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="RFRAME_1">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -2138,7 +2037,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="RFRAME_2">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -2195,7 +2094,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="RFRAME_3">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -2252,7 +2151,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="RFRAME_4">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -2312,7 +2211,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="RFRAME_5">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -2369,7 +2268,7 @@ QLineEdit:on
            <item>
             <widget class="QLCDNumber" name="RFRAME_6">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -2439,18 +2338,18 @@ QLineEdit:on
            <enum>Qt::Vertical</enum>
           </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Preferred</enum>
+           <enum>QSizePolicy::MinimumExpanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>30</height>
+            <height>0</height>
            </size>
           </property>
          </spacer>
         </item>
         <item>
-         <widget class="QGroupBox" name="groupBox_6">
+         <widget class="QGroupBox" name="groupBox_7">
           <property name="font">
            <font>
             <family>Tahoma</family>
@@ -2459,7 +2358,162 @@ QLineEdit:on
            </font>
           </property>
           <property name="title">
-           <string>Velocity Set</string>
+           <string>Load PELCO Program</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <property name="leftMargin">
+            <number>4</number>
+           </property>
+           <property name="topMargin">
+            <number>5</number>
+           </property>
+           <property name="rightMargin">
+            <number>4</number>
+           </property>
+           <property name="bottomMargin">
+            <number>5</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="LBL_PELCO">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>55</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>PELCO</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="BOX_FILE">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>36</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit
+{
+    background-color: qlineargradient(spread:repeat, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(118, 118, 118, 255),stop:1 rgba(70, 70, 70, 255));
+    border: 1px solid #333333;
+    border-radius: 3px;
+    padding-left: 6px;
+    color: lightgray;
+	font-weight: bold;
+    height: 20px;
+
+}
+
+
+QLineEdit::disabled
+{
+	background-color: #404040;
+	color: #656565;
+	border-color: #051a39;
+
+}
+
+
+QLineEdit:hover
+{
+    background-color: #646464;
+
+}
+
+
+QLineEdit:on
+{
+    background-color: #979796;
+	color: #000000;
+
+}</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="BTN_OPEN">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>105</width>
+               <height>36</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Open File</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="EXEC_CTRL">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="title">
+           <string>Procgam Execution Control</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_7">
            <property name="spacing">
@@ -2469,41 +2523,62 @@ QLineEdit:on
             <number>4</number>
            </property>
            <property name="topMargin">
-            <number>4</number>
+            <number>5</number>
            </property>
            <property name="rightMargin">
             <number>4</number>
            </property>
            <property name="bottomMargin">
-            <number>4</number>
+            <number>5</number>
            </property>
            <item>
-            <widget class="QPushButton" name="BTN_SET_H_SPD">
+            <widget class="QLCDNumber" name="LCD_LINE_NUM">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
-             <property name="font">
-              <font>
-               <family>Tahoma</family>
-               <pointsize>12</pointsize>
-               <bold>true</bold>
-              </font>
+             <property name="minimumSize">
+              <size>
+               <width>60</width>
+               <height>50</height>
+              </size>
              </property>
-             <property name="text">
-              <string>Set H Velocity</string>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLCDNumber
+{
+	background-color: #00000000
+}
+</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="digitCount">
+              <number>2</number>
+             </property>
+             <property name="intValue" stdset="0">
+              <number>0</number>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="BTN_SET_V_SPD">
+            <widget class="QPushButton" name="BTN_RUN">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>130</width>
+               <height>50</height>
+              </size>
              </property>
              <property name="font">
               <font>
@@ -2513,12 +2588,108 @@ QLineEdit:on
               </font>
              </property>
              <property name="text">
-              <string>Set V Velocity</string>
+              <string>Run</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="BTN_PAUSE">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>130</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Pause</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="BTN_STOP_PROG">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>130</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Tahoma</family>
+               <pointsize>12</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Stop</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
           </layout>
          </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>12</pointsize>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::MinimumExpanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>0</height>
+           </size>
+          </property>
+         </spacer>
         </item>
         <item>
          <widget class="QGroupBox" name="groupBox_5">
@@ -2540,13 +2711,13 @@ QLineEdit:on
             <number>4</number>
            </property>
            <property name="topMargin">
-            <number>4</number>
+            <number>5</number>
            </property>
            <property name="rightMargin">
             <number>4</number>
            </property>
            <property name="bottomMargin">
-            <number>4</number>
+            <number>5</number>
            </property>
            <item>
             <widget class="QPushButton" name="BTN_SET_H_POS">
@@ -2555,6 +2726,12 @@ QLineEdit:on
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>50</height>
+              </size>
              </property>
              <property name="font">
               <font>
@@ -2575,6 +2752,12 @@ QLineEdit:on
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>50</height>
+              </size>
              </property>
              <property name="font">
               <font>
@@ -2601,7 +2784,7 @@ QLineEdit:on
         <item>
          <widget class="QSlider" name="SLIDER_V_POS">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+           <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -2733,19 +2916,19 @@ QLineEdit:on
         </property>
         <layout class="QGridLayout" name="gridLayout">
          <property name="leftMargin">
-          <number>8</number>
+          <number>16</number>
          </property>
          <property name="topMargin">
-          <number>8</number>
+          <number>16</number>
          </property>
          <property name="rightMargin">
-          <number>8</number>
+          <number>16</number>
          </property>
          <property name="bottomMargin">
-          <number>8</number>
+          <number>16</number>
          </property>
          <property name="spacing">
-          <number>8</number>
+          <number>16</number>
          </property>
          <item row="0" column="0">
           <widget class="QPushButton" name="BTN_UPLT">
@@ -2881,6 +3064,9 @@ QLineEdit:on
            </property>
            <property name="autoExclusive">
             <bool>true</bool>
+           </property>
+           <property name="default">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -3052,6 +3238,28 @@ QLineEdit:on
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>BTN_UPLT</tabstop>
+  <tabstop>BTN_UP</tabstop>
+  <tabstop>BTN_UPRT</tabstop>
+  <tabstop>BTN_LT</tabstop>
+  <tabstop>BTN_STOP</tabstop>
+  <tabstop>BTN_RT</tabstop>
+  <tabstop>BTN_DNLT</tabstop>
+  <tabstop>BTN_DN</tabstop>
+  <tabstop>BTN_DNRT</tabstop>
+  <tabstop>BOX_COM_LST</tabstop>
+  <tabstop>BTN_SET_COM</tabstop>
+  <tabstop>BOX_FILE</tabstop>
+  <tabstop>BTN_OPEN</tabstop>
+  <tabstop>BTN_RUN</tabstop>
+  <tabstop>BTN_PAUSE</tabstop>
+  <tabstop>BTN_STOP_PROG</tabstop>
+  <tabstop>BTN_SET_H_POS</tabstop>
+  <tabstop>BTN_SET_V_POS</tabstop>
+  <tabstop>SLIDER_H_POS</tabstop>
+  <tabstop>SLIDER_V_POS</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
@@ -3146,14 +3354,14 @@ QLineEdit:on
     </hint>
     <hint type="destinationlabel">
      <x>1109</x>
-     <y>76</y>
+     <y>74</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>BTN_STOP</sender>
    <signal>toggled(bool)</signal>
-   <receiver>BTN_SET_H_SPD</receiver>
+   <receiver>BTN_RUN</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -3161,15 +3369,15 @@ QLineEdit:on
      <y>406</y>
     </hint>
     <hint type="destinationlabel">
-     <x>252</x>
-     <y>510</y>
+     <x>169</x>
+     <y>523</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>BTN_STOP</sender>
    <signal>toggled(bool)</signal>
-   <receiver>BTN_SET_V_SPD</receiver>
+   <receiver>BTN_STOP_PROG</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -3179,6 +3387,166 @@ QLineEdit:on
     <hint type="destinationlabel">
      <x>391</x>
      <y>505</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_STOP</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BTN_PAUSE</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>857</x>
+     <y>355</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>279</x>
+     <y>504</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_RUN</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BTN_UPLT</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>498</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>707</x>
+     <y>175</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_RUN</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BTN_UP</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>123</x>
+     <y>500</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>869</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_RUN</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BTN_UPRT</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>145</x>
+     <y>493</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>988</x>
+     <y>221</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_RUN</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BTN_LT</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>143</x>
+     <y>500</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>746</x>
+     <y>376</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_RUN</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BTN_RT</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>125</x>
+     <y>505</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1028</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_RUN</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BTN_DNLT</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>122</x>
+     <y>508</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>757</x>
+     <y>559</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_RUN</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BTN_DN</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>117</x>
+     <y>498</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>899</x>
+     <y>538</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_RUN</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BTN_DNRT</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>131</x>
+     <y>494</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>979</x>
+     <y>500</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BTN_RUN</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BTN_STOP</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>172</x>
+     <y>481</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>840</x>
+     <y>349</y>
     </hint>
    </hints>
   </connection>
